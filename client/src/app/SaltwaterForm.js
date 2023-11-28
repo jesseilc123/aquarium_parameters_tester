@@ -1,13 +1,18 @@
 "use client"; // This is a client component
 
 import * as React from 'react';
-
+import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
-// import InputAdornment from '@mui/material/InputAdornment';
-import { PatternFormat } from 'react-number-format';
+import InputAdornment from '@mui/material/InputAdornment';
+import { PatternFormat, NumericFormat } from 'react-number-format';
 import HelpIcon from '@mui/icons-material/Help';
-import { styled } from '@mui/system';
+import { makeStyles } from '@mui/material';
 import Results from './Results';
+
+
+// const useStyles = makeStyles({})
+
+
 export default function SaltwaterForm() {
 
     const [ammonia, setAmmonia] = React.useState("")
@@ -45,68 +50,63 @@ export default function SaltwaterForm() {
 
     return (
         <div className="flex justify-center items-center flex-col gap-4">  
-            <form component="form" className="flex flex-col gap-2 justify-center" noValidate onSubmit={handleSubmit}>
-                <div className="flex flex-col gap-4 justify-center items-center">
-                    <TextField
-                        className='grid grid-cols-2 overflow-hidden w-1/2 font-sans rounded-lg text-grey-900 dark:text-grey-300 border border-solid bg-white dark:bg-grey-900 hover:border-blue-400 dark:hover:border-blue-400 focus-visible:outline-0 p-1 placeholder-[#a9a9a9]'
-                        type="text"
-                        value={ammonia}
-                        variant="outlined"
-                        placeholder='ex: 0.25'
-                        sx={{ m: 1, width: '30ch' }}
-                        inputProps={{
-                            max: 8,
-                            min: 0,
-                            step: 0.25
-                        }}
-                        InputProps={{
-                            inputComponent: PatternFormatCustom,
-                            endAdornment: 
-                                <InputAdornment position="end" className='text-grey-300'>ppm(mg/L)</InputAdornment>,
-                        }}
-                        onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
-                    >
-                        <button>hello</button>
-                    </TextField>
-                </div>
-                <div className="flex flex-row gap-1 justify-center items-center">
-                    <HelpIcon className='hover cursor-pointer'/>
-                    <TextField
-                        type="text"
-                        className='placeholder-grey-900'
-                        value={nitrate}
-                        variant="outlined"
-                        placeholder='ex: 0.25'
-                        sx={{ m: 1, width: '30ch' }}
-                        inputProps={{
-                            max: "8",
-                            min: "0",
-                            step: "0.25"
-                        }}
-                        InputProps={{
-                            inputComponent: PatternFormatCustom,
-                            endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-                        }}
-                        onChange={(e) => setNitrate(e.target.value)}
-                    />
-                </div>
-                <button type='submit'>Submit</button>
+            <form component="form" className="flex flex-col gap-2 justify-center items-center" noValidate onSubmit={handleSubmit}>
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={ammonia}
+                    label="Ammonia"
+                    placeholder='ex: 0.25'
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                    }}
+                    // onValueChange={({ value: v }) => onChange({ target: { name, value: v } })}
+                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))} 
+                    format="#.##"
+                />
+                {/* <TextField
+                    type="text"
+                    value={ammonia}
+                    label="Ammonia"
+                    placeholder='ex: 0.25'
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                        inputComponent: PatternFormatCustom,
+                        endAdornment: 
+                            <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                    }}
+                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
+                /> */}
+                <TextField
+                    type="text"
+                    value={ammonia}
+                    label="Nitrate"
+                    placeholder='ex: 10'
+                    sx={{ m: 1, width: '25ch' }}
+                    InputProps={{
+                        inputComponent: NumberFormatCustom,
+                        endAdornment: 
+                            <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                    }}
+                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
+                />
             </form>
             <Results data={data}/>
         </div>
     )
 }
 
-const InputAdornment = styled('div')(
-    ({ theme }) => `
-        margin: 8px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        grid-row: 1/3;
-        color: #a9a9a9;
-    `,
-);
+// const InputAdornment = styled('div')(
+//     ({ theme }) => `
+//         margin: 8px;
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         grid-row: 1/3;
+//         color: #a9a9a9;
+//     `,
+// );
 
 const PatternFormatCustom = React.forwardRef(function NumericFormatCustom(props, ref,) {
     const { onChange, ...other } = props;
@@ -114,9 +114,6 @@ const PatternFormatCustom = React.forwardRef(function NumericFormatCustom(props,
     return (
         <PatternFormat
             {...other}
-            className='
-            col-start-1 col-end-2 row-start-1 row-end-3 text-sm font-sans leading-normal text-grey-900 bg-inherit border-0 rounded-[inherit] dark:text-grey-300 px-3 py-2 outline-0 focus-visible:outline-0 focus-visible:outline-none
-            '
             getInputRef={ref}
             onValueChange={(values) => {
                 onChange({
@@ -126,6 +123,27 @@ const PatternFormatCustom = React.forwardRef(function NumericFormatCustom(props,
                     },
                 });
             }}
+            format="#.##"
+        />
+    );
+});
+
+const NumberFormatCustom = React.forwardRef(function NumericFormatCustom(props, ref,) {
+    const { onChange, ...other } = props;
+  
+    return (
+        <NumericFormat 
+            {...other}
+            getInputRef={ref}
+            onValueChange={(values) => {
+                onChange({
+                    target: {
+                        name: props.name,
+                        value: values.value,
+                    },
+                });
+            }}
+            allowNegative={false}
             format="#.##"
         />
     );

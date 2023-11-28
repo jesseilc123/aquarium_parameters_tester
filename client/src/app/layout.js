@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { StyledEngineProvider } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,9 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" id="root">
       <body className={inter.className}>
-        {children}
+        <StyledEngineProvider>
+            {children}
+        </StyledEngineProvider>
       </body>
     </html>
   )
