@@ -11,11 +11,11 @@ export default function Home() {
 
   return (
     <main className="bg-white dark:bg-grey h-screen">
-      <Navbar />
-      <div className="flex bg-white dark:bg-grey dark:text-blue-400 mt-[300px] items-center justify-center flex-col">
-        <ToggleForm active={active} setActive={setActive}/>
-        {active === "freshwater" ? (<FreshwaterForm />) : (<SaltwaterForm />)}
-      </div>   
+        <Navbar />
+        <div className="flex bg-white dark:bg-grey dark:text-blue-400 h-full w-full items-center justify-center flex-col mt-12 xs:mt-1">
+            <ToggleForm active={active} setActive={setActive}/>
+            {active === "freshwater" ? (<FreshwaterForm />) : (<SaltwaterForm />)}
+        </div>   
     </main>
   );
 };
