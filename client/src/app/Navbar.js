@@ -25,7 +25,7 @@ export default function Navbar() {
                     Aquarium Water Parameter Checker
                     </Typography>
                     <Box className="flex flex-row items-center">
-                        <ThemeToggle />
+                        {/* <ThemeToggle /> */}
                     </Box>
                 </Toolbar>
             </AppBar>

@@ -104,7 +104,7 @@ export default function FreshwaterForm() {
                     />
                 </div>
             </form>
-            <Button className="text-white dark:text-blue-400 font-medium dark:bg-grey-800 bg-blue-500 dark:hover:bg-blue-500 dark:hover:text-grey-900" variant="contained">Submit</Button>
+            <Button className="text-black dark:text-blue-400 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-500 dark:hover:text-grey-900" variant="contained">Submit</Button>
         </div>
     );
 }

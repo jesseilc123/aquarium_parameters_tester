@@ -1,17 +1,11 @@
 "use client"; // This is a client component
 
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import { PatternFormat, NumericFormat } from 'react-number-format';
-import HelpIcon from '@mui/icons-material/Help';
-import { makeStyles } from '@mui/material';
 import Results from './Results';
-
-
-// const useStyles = makeStyles({})
-
+import Button from '@mui/material/Button';
 
 export default function SaltwaterForm() {
 
@@ -33,9 +27,9 @@ export default function SaltwaterForm() {
     const handleSubmit = (event) => {
         event.preventDefault()
         const data = {
-            ammonia: (ammonia/ 100),
-            // nitrate: nitrate,
-            // nitrite: nitrite,
+            ammonia: ammonia,
+            nitrate: nitrate,
+            nitrite: nitrite,
             // phosphate: phosphate,
             // calcium: calcium,
             // alkalinity: alkalinity,
@@ -49,102 +43,55 @@ export default function SaltwaterForm() {
     }
 
     return (
-        <div className="flex justify-center items-center flex-col gap-4">  
-            <form component="form" className="flex flex-col gap-2 justify-center items-center" noValidate onSubmit={handleSubmit}>
+        <div className="flex justify-center items-center flex-col">  
+            <form component="form" autoComplete='off' className="flex flex-col justify-center items-center" noValidate onSubmit={handleSubmit}>
                 <PatternFormat
                     customInput={TextField}
                     type="text"
                     value={ammonia}
                     label="Ammonia"
                     placeholder='ex: 0.25'
-                    sx={{ m: 1, width: '25ch' }}
+                    sx={{ border:"white", m: 1, width: '25ch' }}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
-                    // onValueChange={({ value: v }) => onChange({ target: { name, value: v } })}
-                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))} 
+                    onChange={(e) => setAmmonia(e.target.value)} 
                     format="#.##"
                 />
-                {/* <TextField
+                <PatternFormat
+                    customInput={TextField}
                     type="text"
-                    value={ammonia}
-                    label="Ammonia"
-                    placeholder='ex: 0.25'
-                    sx={{ m: 1, width: '25ch' }}
+                    className='text-white'
+                    value={nitrate}
+                    label="Nitrate"
+                    placeholder='ex: 10'
+                    sx={{ color: "white", m: 1, width: '25ch' }}
                     InputProps={{
-                        inputComponent: PatternFormatCustom,
-                        endAdornment: 
-                            <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
-                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
-                /> */}
-                <TextField
+                    classes={{
+                        textfield: "bg-white rounded-xl"
+                    }}
+                    onChange={(e) => setNitrate(e.target.value)}
+                    format="###"
+                />
+                <PatternFormat
+                    customInput={TextField}
                     type="text"
-                    value={ammonia}
+                    value={nitrite}
                     label="Nitrate"
                     placeholder='ex: 10'
                     sx={{ m: 1, width: '25ch' }}
                     InputProps={{
-                        inputComponent: NumberFormatCustom,
-                        endAdornment: 
-                            <InputAdornment position="end" className=' text-grey-300'>ppm(mg/L)</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
-                    onChange={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
+                    onChange={(e) => setNitrite(e.target.value)}
+                    format="###"
                 />
+                <Button type="submit" className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-500 dark:hover:text-grey-900" variant="contained">Submit</Button>
             </form>
             <Results data={data}/>
         </div>
     )
 }
 
-// const InputAdornment = styled('div')(
-//     ({ theme }) => `
-//         margin: 8px;
-//         display: inline-flex;
-//         align-items: center;
-//         justify-content: center;
-//         grid-row: 1/3;
-//         color: #a9a9a9;
-//     `,
-// );
-
-const PatternFormatCustom = React.forwardRef(function NumericFormatCustom(props, ref,) {
-    const { onChange, ...other } = props;
-  
-    return (
-        <PatternFormat
-            {...other}
-            getInputRef={ref}
-            onValueChange={(values) => {
-                onChange({
-                    target: {
-                        name: props.name,
-                        value: values.value,
-                    },
-                });
-            }}
-            format="#.##"
-        />
-    );
-});
-
-const NumberFormatCustom = React.forwardRef(function NumericFormatCustom(props, ref,) {
-    const { onChange, ...other } = props;
-  
-    return (
-        <NumericFormat 
-            {...other}
-            getInputRef={ref}
-            onValueChange={(values) => {
-                onChange({
-                    target: {
-                        name: props.name,
-                        value: values.value,
-                    },
-                });
-            }}
-            allowNegative={false}
-            format="#.##"
-        />
-    );
-});
