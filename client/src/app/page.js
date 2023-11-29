@@ -1,9 +1,10 @@
 "use client";
+
 import React, { useState } from 'react'
-import FreshwaterForm from './FreshwaterForm'
-import SaltwaterForm from './SaltwaterForm'
-import Navbar from './Navbar'
-import ToggleForm from './ToggleForm'
+import Navbar from './components/Navbar'
+import ToggleForm from './components/ToggleForm'
+import SaltwaterPage from '@/saltwater/SaltwaterPage';
+import FreshwaterPage from './freshwater/FreshwaterPage';
 
 
 export default function Home() {
@@ -12,9 +13,9 @@ export default function Home() {
   return (
     <main className="bg-white dark:bg-grey h-screen">
         <Navbar />
-        <div className="flex bg-white dark:bg-grey dark:text-blue-400 h-full w-full items-center justify-center flex-col mt-24 xs:mt-1">
+        <div className="flex bg-white dark:bg-grey dark:text-blue-400 h-full w-full items-center justify-start flex-col mt-[75px]">
             <ToggleForm active={active} setActive={setActive}/>
-            {active === "freshwater" ? (<FreshwaterForm />) : (<SaltwaterForm />)}
+            {active === "freshwater" ? (<FreshwaterPage />) : (<SaltwaterPage  />)}
         </div>   
     </main>
   );

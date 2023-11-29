@@ -1,20 +1,6 @@
 "use client";
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import { createTheme } from '@mui/material/styles';
-import { blue } from '@mui/material/colors';
-import { white } from '@mui/material/colors';
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            light: blue[300],
-            main: blue[500],
-            dark: blue[100],
-            darker: blue[900],
-        },
-    },
-});
 
 const ToggleForm = ({ active, setActive }) => {
     

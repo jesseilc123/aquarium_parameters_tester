@@ -16,14 +16,14 @@ export default function Navbar() {
             <CssBaseline />
             <AppBar component="nav" className="dark:bg-grey">
                 <Toolbar >
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                        className="dark:text-white text-grey font-semibold"
-                    >
-                    Aquarium Water Parameter Checker
-                    </Typography>
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1, display: { sm: 'block' }, color: "common.white" }}
+                            className="  font-semibold"
+                        >
+                            Aquarium Water Parameter Checker
+                        </Typography>
                     <Box className="flex flex-row items-center">
                         {/* <ThemeToggle /> */}
                     </Box>
