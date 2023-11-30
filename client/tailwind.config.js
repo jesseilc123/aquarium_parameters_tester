@@ -29,7 +29,7 @@ module.exports = {
 
         "blue-100": '#DAECFF',
         "blue-200": '#B6DAFF',
-        "blue-400": '#3399FF',
+        "blue-400": '#90CAF9',
         "blue-500": '#007FFF',
         "blue-600": '#0072E5',
         "blue-700": '#0059B2',

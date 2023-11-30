@@ -6,7 +6,6 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 const ThemeToggle = ( { darkMode, setDarkMode } ) => {
-
     useEffect(() => {
         const theme = localStorage.getItem("theme")
         if (theme === "dark") setDarkMode(true)

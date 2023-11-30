@@ -25,9 +25,9 @@ export default function Home() {
   return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
-        <main >
+        <main className='flex min-h-screen h-full'>
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
-            <div className="flex bg-white dark:bg-grey dark:text-blue-400 h-full w-full items-center justify-start flex-col mt-[64px]">
+            <div className="flex dark:text-blue-400 h-full w-full items-center justify-start flex-col mt-[64px]">
                 <ToggleForm active={active} setActive={setActive}/>
                 {active === "freshwater" ? (<FreshwaterPage />) : (<SaltwaterPage  />)}
             </div>   

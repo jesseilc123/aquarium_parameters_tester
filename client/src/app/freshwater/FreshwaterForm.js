@@ -21,14 +21,13 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
         event.preventDefault()
         const data = [
             {name: "Temperature", input: temperature, min: 72,  max: 82, unit: "°F"},
-            {name: "Ammonia", input: ammonia, min: 0,  max: 0.1, unit: "ppm"},
-            {name: "Nitrite", input: nitrite, min: 0,  max: 0.1, unit: "ppm"},
+            {name: "Ammonia", input: ammonia, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
+            {name: "Nitrite", input: nitrite, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
             {name: "Nitrate", input: nitrate, min: 0,  max: 50, unit: "ppm"},
             {name: "PH", input: pH, min: 6.5,  max: 7.5, unit: ""},
             {name: "Alkalinity", input: alkalinity, min: 4,  max: 8, unit: "KH"},
             {name: "General Hardness", input: gH, min: 4,  max: 12, unit: "GH"},
         ]
-        console.log(data)
         setData(data)
         setDisplayResults(true)
         window.scrollTo(0, 0)
@@ -55,6 +54,13 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
 
                     }}
                     onChange={(e) => setTemperature(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setTemperature(null)
+                        } else {
+                            setTemperature(parseInt(e.target.value))
+                        }
+                    }}
                     format="###"
                 />
                 <PatternFormat
@@ -76,13 +82,14 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                     type="text"
                     value={nitrite}
                     label="Nitrite"
-                    placeholder='ex: 10'
+                    placeholder='ex: 0.25'
                     sx={{ display: "flex", width: 1}}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setNitrite(e.target.value)}
-                    format="###"
+                    onBlur={(e) => setNitrite(parseFloat(e.target.value).toFixed(2))}
+                    format="#.##"
                 />
                 <PatternFormat
                     customInput={TextField}
@@ -96,6 +103,13 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setNitrate(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setNitrate(null)
+                        } else {
+                            setNitrate(parseInt(e.target.value))
+                        }
+                    }}
                     format="###"
                 />
                 <PatternFormat
@@ -120,6 +134,13 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">KH</InputAdornment>,
                     }}
                     onChange={(e) => setAlkalinity(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setAlkalinity(null)
+                        } else{
+                            setAlkalinity(parseInt(e.target.value))
+                        }
+                    }}
                     format="##"
                 />
                 <PatternFormat
@@ -133,9 +154,23 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">GH</InputAdornment>,
                     }}
                     onChange={(e) => setGH(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setGH(null)
+                        } else{
+                            setGH(parseInt(e.target.value))
+                        }
+                    }}
                     format="###"
                 />
-                <Button type="submit" className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-500 dark:hover:text-grey-900" variant="contained">Submit</Button>
+                <Button 
+                    type="submit" 
+                    className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900"
+                    variant="contained"
+                    sx={{border: 2}}
+                >
+                    Submit
+                </Button>
             </form>
         </div>
     );

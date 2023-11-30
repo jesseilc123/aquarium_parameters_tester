@@ -6,9 +6,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-
 import ThemeToggle from './ThemeToggle';
-
 
 export default function Navbar( { darkMode, setDarkMode }) {
     return (
@@ -16,14 +14,13 @@ export default function Navbar( { darkMode, setDarkMode }) {
             <CssBaseline />
             <AppBar component="nav" className="dark:bg-grey">
                 <Toolbar >
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1, display: { sm: 'block' }, color: "common.white" }}
-                            className="  font-semibold"
-                        >
-                            Aquarium Water Parameter Checker
-                        </Typography>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ fontSize: {xs: 16, sm: 20 }, flexGrow: 1, fontWeight: 550}}
+                    >
+                        Aquarium Parameter Checker
+                    </Typography>
                     <Box className="flex flex-row items-center">
                         <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
                     </Box>

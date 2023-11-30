@@ -2,53 +2,50 @@
 
 import * as React from 'react';
 import { TextField } from '@mui/material';
-// import InputAdornment from '@mui/material/InputAdornment';
 import { styled } from '@mui/system';
 import { PatternFormat } from 'react-number-format';
-import SaltwaterResults from './SaltwaterResults';
 import Button from '@mui/material/Button';
 
 export default function SaltwaterForm( { setDisplayResults, setData } ) {
-    const [salinity, setSalinity] = React.useState(null)
-    const [temperature, setTemperature] = React.useState(null)
-    const [pH, setPH] = React.useState(null)
-    const [alkalinity, setAlkalinity] = React.useState(null)
-    const [ammonia, setAmmonia] = React.useState(null)
-    const [nitrite, setNitrite] = React.useState(null)
-    const [nitrate, setNitrate] = React.useState(null)
-    const [phosphate, setPhosphate] = React.useState(null)
+    const [salinity, setSalinity] = React.useState(null);
+    const [temperature, setTemperature] = React.useState(null);
+    const [pH, setPH] = React.useState(null);
+    const [alkalinity, setAlkalinity] = React.useState(null);
+    const [ammonia, setAmmonia] = React.useState(null);
+    const [nitrite, setNitrite] = React.useState(null);
+    const [nitrate, setNitrate] = React.useState(null);
+    const [phosphate, setPhosphate] = React.useState(null);
 
-    const [calcium, setCalcium] = React.useState(null)
-    const [magnesium, setMagnesium] = React.useState(null)
-    const [iodine, setIodine] = React.useState(null)
-    const [strontium, setStrontium] = React.useState(null)
+    const [calcium, setCalcium] = React.useState(null);
+    const [magnesium, setMagnesium] = React.useState(null);
+    const [iodine, setIodine] = React.useState(null);
+    const [strontium, setStrontium] = React.useState(null);
 
 
     const handleSaltwaterFormSubmit = (event) => {
         event.preventDefault()
         const data = 
             [
-                {name:"Salinity", input: salinity, min: 1.020, max: 1.025, unit: "SG"},
+                {name:"Salinity", input: salinity, min: parseFloat(1.020).toFixed(3), max: 1.025, unit: "SG"},
                 {name:"Temperature", input: temperature, min: 72, max: 78, unit: "°F"},
-                {name:"PH", input: pH, min: 72, max: 78, unit: ""},
-                {name:"Alkalinity", input: alkalinity, min: 72, max: 78, unit: "KH"},
-                {name: "Ammonia", input: ammonia, min: 0,  max: 0.1, unit: "ppm"},
-                {name: "Nitrate", input: nitrate, min: 0,  max: 0.1, unit: "ppm"},
-                {name: "Nitrite", input: nitrite, min: 0,  max: 30, unit: "ppm"},
-                {name:"Phosphate", input: phosphate, min: 0,  max: 0.2, unit: "ppm"},
+                {name:"PH", input: pH, min: 8.1, max: 8.4, unit: ""},
+                {name:"Alkalinity", input: alkalinity, min: 8, max: 12, unit: "KH"},
+                {name: "Ammonia", input: ammonia, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
+                {name: "Nitrite", input: nitrite, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
+                {name: "Nitrate", input: nitrate, min: 0,  max: 30, unit: "ppm"},
+                {name:"Phosphate", input: phosphate, min: 0,  max: parseFloat(1.00).toFixed(2), unit: "ppm"},
                 {name:"Calcium", input: calcium, min: 350,  max: 450, unit: "ppm"},
                 {name:"Magnesium", input: magnesium, min: 1150,  max: 1350, unit: "ppm"},
-                {name:"Iodine", input: iodine, min: 0.04,  max: 0.10, unit: "ppm"},
+                {name:"Iodine", input: iodine, min: 0.04,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
                 {name:"Strontium", input: strontium, min: 8,  max: 14, unit: "ppm"},
             ]
-        console.log(data)
         setData(data)
         setDisplayResults(true)
-        window.scrollTo(0, 0)
-    }
+        window.scrollTop
+    };
     
     return (
-        <div className="flex justify-center items-center flex-col">  
+        <div className="flex justify-center items-center flex-col">
             <form 
                 component="form" 
                 autoComplete='off' 
@@ -61,8 +58,8 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     type="text"
                     value={salinity}
                     label="Salinity"
-                    placeholder='1.0'
-                    sx={{ display: "flex" , width: 1}}
+                    placeholder='1.0__'
+                    sx={{ display: "flex" , width: 1 }}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">SG</InputAdornment>,
                     }}
@@ -81,6 +78,13 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">°F</InputAdornment>,
                     }}
                     onChange={(e) => setTemperature(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setTemperature(null)
+                        } else {
+                            setTemperature(parseInt(e.target.value))
+                        }
+                    }}
                     format="##"
                 />
                 <PatternFormat
@@ -105,6 +109,13 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">KH</InputAdornment>,
                     }}
                     onChange={(e) => setAlkalinity(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setAlkalinity(null)
+                        } else{
+                            setAlkalinity(parseInt(e.target.value))
+                        }
+                    }}
                     format="##"
                 />
                 <PatternFormat
@@ -118,10 +129,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setAmmonia(e.target.value)}
-                    onBlur={(e) => {
-                        const value = parseFloat(e.target.value).toFixed(2)
-                        setAmmonia(value)
-                    }}
+                    onBlur={(e) => {setAmmonia(parseFloat(e.target.value).toFixed(2))}}
                     format="#.##"
                 />
                 <PatternFormat
@@ -129,13 +137,14 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     type="text"
                     value={nitrite}
                     label="Nitrite"
-                    placeholder='ex: 10'
+                    placeholder='ex: 0.25'
                     sx={{ display: "flex", width: 1}}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setNitrite(e.target.value)}
-                    format="###"
+                    onBlur={(e) => setNitrite(parseFloat(e.target.value).toFixed(2))}
+                    format="#.##"
                 />
                 <PatternFormat
                     customInput={TextField}
@@ -148,10 +157,14 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     InputProps={{
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
-                    classes={{
-                        textfield: "bg-white rounded-xl"
-                    }}
                     onChange={(e) => setNitrate(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setNitrate(null)
+                        } else {
+                            setNitrate(parseInt(e.target.value))
+                        }
+                    }}
                     format="###"
                 />
                 <PatternFormat
@@ -179,6 +192,13 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setCalcium(e.target.value)}
+                    onBlur={(e) => {
+                        if(e.target.value === "") {
+                            setCalcium(null)
+                        } else {
+                            setCalcium(parseInt(e.target.value))
+                        }
+                    }}
                     format="###"
                 />
                 <PatternFormat
@@ -192,6 +212,13 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setMagnesium(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setMagnesium(null)
+                        } else {
+                            setMagnesium(parseInt(e.target.value))
+                        }
+                    }}
                     format="####"
                 />
                 <PatternFormat
@@ -219,18 +246,27 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
                     onChange={(e) => setStrontium(e.target.value)}
+                    onBlur={(e) => {
+                        if (e.target.value === "") {
+                            setStrontium(null)
+                        } else {
+                            setStrontium(parseInt(e.target.value))
+                        }
+                    }}
                     format="##"
-                />
+                /> 
                 <Button 
                     type="submit" 
-                    className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-500 dark:hover:text-grey-900" variant="contained"
+                    className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900" 
+                    variant="contained" 
+                    sx={{border: 2}}
                 >
                     Submit
                 </Button>
             </form>
         </div>
-    )
-}
+    );
+};
 
 const InputAdornment = styled('div')(
     ({ theme }) => `

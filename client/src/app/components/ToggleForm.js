@@ -9,15 +9,25 @@ const ToggleForm = ({ active, setActive }) => {
         setActive(event.target.value);
     }
     return(
-        <ToggleButtonGroup
+        <ToggleButtonGroup 
             color="primary"
             className="m-4"
             value={active}
             onClick={handleClick}
             aria-label="Platform"
         >
-            <ToggleButton className="dark:text-white" value="freshwater">Fresh Water</ToggleButton>
-            <ToggleButton className="dark:text-white" value="saltwater">Salt Water</ToggleButton>
+            <ToggleButton 
+                value="freshwater" 
+                sx={{fontWeight: 600, border: 1 }}
+            >
+                Fresh Water
+            </ToggleButton>
+            <ToggleButton 
+                value="saltwater" 
+                sx={{fontWeight: 600, border: 1, font: "#000000"}} 
+            >
+                Salt Water
+            </ToggleButton>
         </ToggleButtonGroup>
     )
     
