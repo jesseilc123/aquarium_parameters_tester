@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Navbar from './components/Navbar'
 import ToggleForm from './components/ToggleForm'
-import SaltwaterPage from '@/saltwater/SaltwaterPage';
+import SaltwaterPage from './saltwater/SaltwaterPage'
 import FreshwaterPage from './freshwater/FreshwaterPage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
