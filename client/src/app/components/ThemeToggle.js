@@ -1,12 +1,11 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React from "react"
+import { useEffect } from "react";
 import Switch from '@mui/material/Switch';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-const ThemeToggle = () => {
-    const [darkMode, setDarkMode] = useState(true)
+const ThemeToggle = ( { darkMode, setDarkMode } ) => {
 
     useEffect(() => {
         const theme = localStorage.getItem("theme")

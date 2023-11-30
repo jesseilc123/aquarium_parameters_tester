@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import ThemeToggle from './ThemeToggle';
 
 
-export default function Navbar() {
+export default function Navbar( { darkMode, setDarkMode }) {
     return (
         <Box sx={{ display: 'flex'}} >
             <CssBaseline />
@@ -25,7 +25,7 @@ export default function Navbar() {
                             Aquarium Water Parameter Checker
                         </Typography>
                     <Box className="flex flex-row items-center">
-                        {/* <ThemeToggle /> */}
+                        <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
                     </Box>
                 </Toolbar>
             </AppBar>

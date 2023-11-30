@@ -8,28 +8,30 @@ import { PatternFormat } from 'react-number-format';
 import Button from '@mui/material/Button';
 
 export default function FreshwaterForm( { setDisplayResults, setData } ) {
+    const [temperature, setTemperature] = React.useState(null)
     const [ammonia, setAmmonia] = React.useState(null)
     const [nitrite, setNitrite] = React.useState(null)
     const [nitrate, setNitrate] = React.useState(null)
-    const [chlorine, setChlorine] = React.useState(null)
     const [pH, setPH] = React.useState(null)
+    const [alkalinity, setAlkalinity] = React.useState(null)
     const [gH, setGH] = React.useState(null)
-    const [phosphate, setPhosphate] = React.useState(null)
+
 
     const handleFreshwaterFormSubmit = (event) => {
         event.preventDefault()
         const data = [
-            {name: "Ammonia", input: ammonia},
-            {name: "Nitrite", input: nitrite},
-            {name: "Nitrate", input: nitrate},
-            {name: "Chlorine", input: chlorine},
-            {name: "PH", input: pH},
-            {name: "General Hardness", input: gH},
-            {name: "Phosphate", input: phosphate},
+            {name: "Temperature", input: temperature, min: 72,  max: 82, unit: "°F"},
+            {name: "Ammonia", input: ammonia, min: 0,  max: 0.1, unit: "ppm"},
+            {name: "Nitrite", input: nitrite, min: 0,  max: 0.1, unit: "ppm"},
+            {name: "Nitrate", input: nitrate, min: 0,  max: 50, unit: "ppm"},
+            {name: "PH", input: pH, min: 6.5,  max: 7.5, unit: ""},
+            {name: "Alkalinity", input: alkalinity, min: 4,  max: 8, unit: "KH"},
+            {name: "General Hardness", input: gH, min: 4,  max: 12, unit: "GH"},
         ]
         console.log(data)
         setData(data)
         setDisplayResults(true)
+        window.scrollTo(0, 0)
     }
 
     return (
@@ -41,6 +43,20 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                 noValidate 
                 onSubmit={handleFreshwaterFormSubmit}
             >
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={temperature}
+                    label="Temperature"
+                    placeholder='ex: 78'
+                    sx={{ display: "flex", width: 1 }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">°F</InputAdornment>,
+
+                    }}
+                    onChange={(e) => setTemperature(e.target.value)}
+                    format="###"
+                />
                 <PatternFormat
                     customInput={TextField}
                     type="text"
@@ -96,38 +112,22 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                 <PatternFormat
                     customInput={TextField}
                     type="text"
-                    value={chlorine}
-                    label="Chlorine"
-                    placeholder='ex: 0.8'
+                    value={alkalinity}
+                    label="Alkalinity"
+                    placeholder='ex: 6'
                     sx={{ display: "flex", width: 1 }}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-
+                        endAdornment: <InputAdornment position="end">KH</InputAdornment>,
                     }}
-                    onChange={(e) => setChlorine(e.target.value)}
-                    onBlur={(e) => setChlorine(parseFloat(e.target.value).toFixed(1))}
-                    format="#.#"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={phosphate}
-                    label="Phosphate"
-                    placeholder='ex: 0.25'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-                    }}
-                    onChange={(e) => setPhosphate(e.target.value)}
-                    onBlur={(e) => setPhosphate(parseFloat(e.target.value).toFixed(2))}
-                    format="#.##"
+                    onChange={(e) => setAlkalinity(e.target.value)}
+                    format="##"
                 />
                 <PatternFormat
                     customInput={TextField}
                     type="text"
                     value={gH}
                     label="General Hardness"
-                    placeholder='ex: 100'
+                    placeholder='ex: 4'
                     sx={{ display: "flex", width: 1 }}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">GH</InputAdornment>,

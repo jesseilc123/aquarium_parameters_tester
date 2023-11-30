@@ -9,39 +9,42 @@ import SaltwaterResults from './SaltwaterResults';
 import Button from '@mui/material/Button';
 
 export default function SaltwaterForm( { setDisplayResults, setData } ) {
-
+    const [salinity, setSalinity] = React.useState(null)
+    const [temperature, setTemperature] = React.useState(null)
+    const [pH, setPH] = React.useState(null)
+    const [alkalinity, setAlkalinity] = React.useState(null)
     const [ammonia, setAmmonia] = React.useState(null)
-    const [nitrate, setNitrate] = React.useState(null)
     const [nitrite, setNitrite] = React.useState(null)
+    const [nitrate, setNitrate] = React.useState(null)
     const [phosphate, setPhosphate] = React.useState(null)
 
     const [calcium, setCalcium] = React.useState(null)
-    const [alkalinity, setAlkalinity] = React.useState(null)
     const [magnesium, setMagnesium] = React.useState(null)
-
-    const [salinity, setSalinity] = React.useState(null)
-    const [pH, setPH] = React.useState(null)
-    const [chlorine, setChlorine] = React.useState(null)
+    const [iodine, setIodine] = React.useState(null)
+    const [strontium, setStrontium] = React.useState(null)
 
 
     const handleSaltwaterFormSubmit = (event) => {
         event.preventDefault()
         const data = 
             [
-                {name: "Ammonia", input: ammonia, bottom: 0,  top: 0.1},
-                {name: "Nitrate", input: nitrate, bottom: 10,  top: 20},
-                {name: "Nitrite", input: nitrite, bottom: 0,  top: 0.1},
-                {name:"Phosphate", input: phosphate, bottom: 0,  top: 0.1},
-                {name:"Calcium", input: calcium},
-                {name:"Alkalinity", input: alkalinity},
-                {name:"Magnesium", input: magnesium},
-                {name:"Salinity", input: salinity},
-                {name:"PH", input: pH},
-                {name:"Chlorine", input: chlorine},
+                {name:"Salinity", input: salinity, min: 1.020, max: 1.025, unit: "SG"},
+                {name:"Temperature", input: temperature, min: 72, max: 78, unit: "°F"},
+                {name:"PH", input: pH, min: 72, max: 78, unit: ""},
+                {name:"Alkalinity", input: alkalinity, min: 72, max: 78, unit: "KH"},
+                {name: "Ammonia", input: ammonia, min: 0,  max: 0.1, unit: "ppm"},
+                {name: "Nitrate", input: nitrate, min: 0,  max: 0.1, unit: "ppm"},
+                {name: "Nitrite", input: nitrite, min: 0,  max: 30, unit: "ppm"},
+                {name:"Phosphate", input: phosphate, min: 0,  max: 0.2, unit: "ppm"},
+                {name:"Calcium", input: calcium, min: 350,  max: 450, unit: "ppm"},
+                {name:"Magnesium", input: magnesium, min: 1150,  max: 1350, unit: "ppm"},
+                {name:"Iodine", input: iodine, min: 0.04,  max: 0.10, unit: "ppm"},
+                {name:"Strontium", input: strontium, min: 8,  max: 14, unit: "ppm"},
             ]
         console.log(data)
         setData(data)
         setDisplayResults(true)
+        window.scrollTo(0, 0)
     }
     
     return (
@@ -53,7 +56,57 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                 noValidate 
                 onSubmit={handleSaltwaterFormSubmit}
             >
-                {/* Water Cycle */}
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={salinity}
+                    label="Salinity"
+                    placeholder='1.0'
+                    sx={{ display: "flex" , width: 1}}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">SG</InputAdornment>,
+                    }}
+                    onChange={(e) => setSalinity(e.target.value)}
+                    onBlur={(e) => setSalinity(parseFloat(e.target.value).toFixed(3))}
+                    format="1.0##"
+                />
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={temperature}
+                    label="Temperature"
+                    placeholder='ex: 78'
+                    sx={{ display: "flex" , width: 1}}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">°F</InputAdornment>,
+                    }}
+                    onChange={(e) => setTemperature(e.target.value)}
+                    format="##"
+                />
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={pH}
+                    label="pH"
+                    placeholder='ex: 7.4'
+                    sx={{ display: "flex", width: 1 }}
+                    onChange={(e) => setPH(e.target.value)}
+                    onBlur={(e) => setPH(parseFloat(e.target.value).toFixed(1))}
+                    format="#.#"
+                />
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={alkalinity}
+                    label="Alkalinity"
+                    placeholder='ex: 8'
+                    sx={{ display: "flex", width: 1 }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">KH</InputAdornment>,
+                    }}
+                    onChange={(e) => setAlkalinity(e.target.value)}
+                    format="##"
+                />
                 <PatternFormat
                     customInput={TextField}
                     type="text"
@@ -104,46 +157,6 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                 <PatternFormat
                     customInput={TextField}
                     type="text"
-                    value={salinity}
-                    label="Salinity"
-                    placeholder='1.0'
-                    sx={{ display: "flex" , width: 1}}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">SG</InputAdornment>,
-                    }}
-                    onChange={(e) => setSalinity(e.target.value)}
-                    onBlur={(e) => setSalinity(parseFloat(e.target.value).toFixed(3))}
-                    format="1.0##"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={pH}
-                    label="pH"
-                    placeholder='ex: 7.4'
-                    sx={{ display: "flex", width: 1 }}
-                    onChange={(e) => setPH(e.target.value)}
-                    onBlur={(e) => setPH(parseFloat(e.target.value).toFixed(1))}
-                    format="#.#"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={chlorine}
-                    label="Chlorine"
-                    placeholder='ex: 0.8'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-
-                    }}
-                    onChange={(e) => setChlorine(e.target.value)}
-                    onBlur={(e) => setChlorine(parseFloat(e.target.value).toFixed(1))}
-                    format="#.#"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
                     value={phosphate}
                     label="Phosphate"
                     placeholder='ex: 0.25'
@@ -155,7 +168,6 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     onBlur={(e) => setPhosphate(parseFloat(e.target.value).toFixed(2))}
                     format="#.##"
                 />
-                {/* Corals */}
                 <PatternFormat
                     customInput={TextField}
                     type="text"
@@ -172,19 +184,6 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                 <PatternFormat
                     customInput={TextField}
                     type="text"
-                    value={alkalinity}
-                    label="Alkalinity"
-                    placeholder='ex: 8'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">dKH</InputAdornment>,
-                    }}
-                    onChange={(e) => setAlkalinity(e.target.value)}
-                    format="##"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
                     value={magnesium}
                     label="Magnesium"
                     placeholder='ex: 1200'
@@ -194,6 +193,33 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     }}
                     onChange={(e) => setMagnesium(e.target.value)}
                     format="####"
+                />
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={iodine}
+                    label="Iodine"
+                    placeholder='ex: 0.08'
+                    sx={{ display: "flex", width: 1 }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
+                    }}
+                    onChange={(e) => setIodine(e.target.value)}
+                    onBlur={(e) => setIodine(parseFloat(e.target.value).toFixed(2))}
+                    format="#.##"
+                />
+                <PatternFormat
+                    customInput={TextField}
+                    type="text"
+                    value={strontium}
+                    label="Strontium"
+                    placeholder='ex: 10'
+                    sx={{ display: "flex", width: 1 }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
+                    }}
+                    onChange={(e) => setStrontium(e.target.value)}
+                    format="##"
                 />
                 <Button 
                     type="submit" 
