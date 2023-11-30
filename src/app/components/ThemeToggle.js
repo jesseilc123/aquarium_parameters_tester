@@ -9,7 +9,7 @@ const ThemeToggle = ( { darkMode, setDarkMode } ) => {
     useEffect(() => {
         const theme = localStorage.getItem("theme")
         if (theme === "dark") setDarkMode(true)
-    }, []);
+    }, [setDarkMode]);
 
     const handleChange = () => {
         setDarkMode(!darkMode)
