@@ -1,15 +1,17 @@
 "use client"; // This is a client component
 
-import * as React from 'react';
+import { useEffect } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ThemeToggle from './ThemeToggle';
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function Navbar( { darkMode, setDarkMode }) {
+    const router = useRouter()
+
     return (
         <Box sx={{ display: 'flex'}} >
             <CssBaseline />
@@ -29,12 +31,12 @@ export default function Navbar( { darkMode, setDarkMode }) {
                     </Typography>
                     <div className='flex flex-row items-center gap-3 justify-between sm:justify-end w-full'>
                         <div className='flex flex-row items-center gap-2'>
-                            <Link href="/">
+                            <button onClick={() => router.push('/')}>
                                 <Typography className='dark:text-blue-400 hover:underline'>Home</Typography>
-                            </Link>
-                            <Link href="/ranges">
+                            </button>
+                            <button onClick={() => router.push('/ranges')}>
                                 <Typography className='dark:text-blue-400 hover:underline'>Ranges</Typography>
-                            </Link>
+                            </button>
                         </div>
                         <Box className="flex flex-row items-center">
                             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
