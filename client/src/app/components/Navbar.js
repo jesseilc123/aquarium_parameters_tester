@@ -9,8 +9,6 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link'
 
 export default function Navbar( { darkMode, setDarkMode }) {
-    const [tab, setTab] = useState("Home")
-
     return (
         <Box sx={{ display: 'flex'}} >
             <CssBaseline />
@@ -33,7 +31,7 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/">
                                 <button
                                     value="Home"
-                                    className={`dark:text-blue-400 hover:text-grey-300 ${tab === "Home" ? "underline": ""}`}
+                                    className={`dark:text-blue-400 hover:text-grey-300`}
                                     onClick={(e) => setTab(e.target.value)}
                                 >
                                     Home
@@ -42,7 +40,7 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/ranges">
                                 <button 
                                     value="Ranges"
-                                    className={`dark:text-blue-400 hover:text-grey-300 ${tab === "Ranges" ? "underline": ""}`}
+                                    className={`dark:text-blue-400 hover:text-grey-300 `}
                                     onClick={(e) => setTab(e.target.value)}
                                 >
                                     Ranges
