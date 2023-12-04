@@ -20,13 +20,13 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
     const handleFreshwaterFormSubmit = (event) => {
         event.preventDefault()
         const data = [
-            {name: "Temperature", input: temperature, min: 72,  max: 82, unit: "°F"},
-            {name: "Ammonia", input: ammonia, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
-            {name: "Nitrite", input: nitrite, min: 0,  max: parseFloat(0.10).toFixed(2), unit: "ppm"},
-            {name: "Nitrate", input: nitrate, min: 0,  max: 50, unit: "ppm"},
-            {name: "PH", input: pH, min: 6.5,  max: 7.5, unit: ""},
-            {name: "Alkalinity", input: alkalinity, min: 4,  max: 8, unit: "KH"},
-            {name: "General Hardness", input: gH, min: 4,  max: 12, unit: "GH"},
+            {name: "Temperature", input: temperature, unit: "°F"},
+            {name: "Ammonia", input: ammonia, unit: "ppm"},
+            {name: "Nitrite", input: nitrite, unit: "ppm"},
+            {name: "Nitrate", input: nitrate, unit: "ppm"},
+            {name: "PH", input: pH, unit: ""},
+            {name: "Alkalinity", input: alkalinity, unit: "KH"},
+            {name: "General Hardness", input: gH, unit: "GH"},
         ]
         setData(data)
         setDisplayResults(true)
