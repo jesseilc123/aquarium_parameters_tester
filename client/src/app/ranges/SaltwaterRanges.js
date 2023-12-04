@@ -25,7 +25,7 @@ export default function FreshwaterRanges() {
     ]
 
     return(
-        <div className='flex w-full lg:max-w-[70%] h-[50%] px-4 items-center justify-start sm:justify-center'>
+        <div className='flex w-full lg:max-w-[50%] h-[50%] px-4 items-center justify-start sm:justify-center'>
             <TableContainer component={Paper} className='border-[1px] mb-[20px]'>
                 <Table sx={{ minWidth: 440}} aria-label="simple table" style={{ tableLayout: "fixed" }}>
                     <TableHead>

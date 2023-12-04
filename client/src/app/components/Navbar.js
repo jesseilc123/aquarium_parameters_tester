@@ -1,16 +1,15 @@
 "use client"; // This is a client component
-
-import { useEffect } from 'react'
+import React, { useState } from "react"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import ThemeToggle from './ThemeToggle';
-import { useRouter } from 'next/navigation'
+// import ThemeToggle from './ThemeToggle';
+import Link from 'next/link'
 
 export default function Navbar( { darkMode, setDarkMode }) {
-    const router = useRouter()
+    const [tab, setTab] = useState("Home")
 
     return (
         <Box sx={{ display: 'flex'}} >
@@ -31,16 +30,28 @@ export default function Navbar( { darkMode, setDarkMode }) {
                     </Typography>
                     <div className='flex flex-row items-center gap-3 justify-between sm:justify-end w-full'>
                         <div className='flex flex-row items-center gap-2'>
-                            <button onClick={() => router.push('/')}>
-                                <Typography className='dark:text-blue-400 hover:underline'>Home</Typography>
-                            </button>
-                            <button onClick={() => router.push('/ranges')}>
-                                <Typography className='dark:text-blue-400 hover:underline'>Ranges</Typography>
-                            </button>
+                            <Link href="/">
+                                <button
+                                    value="Home"
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${tab === "Home" ? "underline": ""}`}
+                                    onClick={(e) => setTab(e.target.value)}
+                                >
+                                    Home
+                                </button>
+                            </Link>
+                            <Link href="/ranges">
+                                <button 
+                                    value="Ranges"
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${tab === "Ranges" ? "underline": ""}`}
+                                    onClick={(e) => setTab(e.target.value)}
+                                >
+                                    Ranges
+                                </button>
+                            </Link>
                         </div>
-                        <Box className="flex flex-row items-center">
+                        {/* <Box className="flex flex-row items-center">
                             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-                        </Box>
+                        </Box> */}
                     </div>
                 </Toolbar>
             </AppBar>
