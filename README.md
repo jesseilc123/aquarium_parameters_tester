@@ -8,7 +8,7 @@ Welcome to the Aquarium Parameter Tracker, a web application designed to help aq
 
 - **Range Table:** View parameter ranges of various aquarium types after submitted data or selecting the ranges tab.
 
--**Data Analysis:** Visual and text feedback on inputted data analyzing whether range parameter is low, high, or good.
+- **Data Analysis:** Visual and text feedback on inputted data analyzing whether range parameter is low, high, or good.
 
 ## Getting Started
 
