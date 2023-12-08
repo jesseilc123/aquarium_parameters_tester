@@ -32,7 +32,6 @@ export default function Navbar( { darkMode, setDarkMode }) {
                                 <button
                                     value="Home"
                                     className={`dark:text-blue-400 hover:text-grey-300`}
-                                    onClick={(e) => setTab(e.target.value)}
                                 >
                                     Home
                                 </button>
@@ -41,7 +40,6 @@ export default function Navbar( { darkMode, setDarkMode }) {
                                 <button 
                                     value="Ranges"
                                     className={`dark:text-blue-400 hover:text-grey-300 `}
-                                    onClick={(e) => setTab(e.target.value)}
                                 >
                                     Ranges
                                 </button>
