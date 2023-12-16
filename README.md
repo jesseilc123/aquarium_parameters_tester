@@ -17,6 +17,7 @@ Welcome to the Aquarium Parameter Tracker, a web application designed to help aq
 2. cd to `client` directory 
 
 ```
+npm i
 cd client
 ```
 
