@@ -28,4 +28,62 @@ const reefParamters = [
     {name:"Strontium", min: 8,  max: 14},
 ]
 
-export { fowlrParamters, reefParamters };
+const communityParameters = [
+    {name:"Temperature", min: 72, max: 82},
+    {name: "Ammonia", min: 0,  max: 0},
+    {name: "Nitrite", min: 0,  max: 0},
+    {name: "Nitrate", min: 0,  max: 50},
+    {name:"PH", min: 6.5, max: 7.5},
+    {name:"Alkalinity ", min: 4,  max: 8},
+    {name:"General Hardness", min: 4,  max: 12},
+]
+
+const cichlidParameters = [
+    {name:"Temperature", min: 72, max: 82},
+    {name: "Ammonia", min: 0,  max: 0},
+    {name: "Nitrite", min: 0,  max: 0},
+    {name: "Nitrate", min: 0,  max: 50},
+    {name:"PH", min: 7.8, max: 8.5},
+    {name:"Alkalinity ", min: 10,  max: 18},
+    {name:"General Hardness", min: 12,  max: 20},
+]
+
+const plantsDiscusParameters = [
+    {name:"Temperature", min: 76, max: 86},
+    {name: "Ammonia", min: 0,  max: 0},
+    {name: "Nitrite", min: 0,  max: 0},
+    {name: "Nitrate", min: 0,  max: 30},
+    {name:"PH", min: 6.0, max: 7.5},
+    {name:"Alkalinity ", min: 3,  max: 8},
+    {name:"General Hardness", min: 3,  max: 8},
+]
+
+const brackish = [
+    {name:"Temperature", min: 72, max: 82},
+    {name: "Ammonia", min: 0,  max: 0},
+    {name: "Nitrite", min: 0,  max: 0},
+    {name: "Nitrate", min: 0,  max: 50},
+    {name:"PH", min: 7.5, max: 8.4},
+    {name:"Alkalinity ", min: 10,  max: 18},
+    {name:"General Hardness", min: 12,  max: 20},
+]
+
+const pond = [
+    {name:"Temperature", min: 33, max: 86},
+    {name: "Ammonia", min: 0,  max: 0},
+    {name: "Nitrite", min: 0,  max: 0},
+    {name: "Nitrate", min: 0,  max: 50},
+    {name:"PH", min: 6.5, max: 7.5},
+    {name:"Alkalinity ", min: 4,  max: 8},
+    {name:"General Hardness", min: 4,  max: 12},
+]
+
+export { 
+    fowlrParamters, 
+    reefParamters, 
+    communityParameters, 
+    cichlidParameters,
+    plantsDiscusParameters, 
+    brackish,
+    pond
+};

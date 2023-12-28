@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { communityParameters, cichlidParameters,  plantsDiscusParameters, brackish, pond} from '../constants/index'
 
 export default function FreshwaterResults( {data, setDisplayResults }){
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,57 +19,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
 
     let count = 0
 
-    const communityParamters = [
-        {name:"Temperature", min: 72, max: 82},
-        {name: "Ammonia", min: 0,  max: 0},
-        {name: "Nitrite", min: 0,  max: 0},
-        {name: "Nitrate", min: 0,  max: 50},
-        {name:"PH", min: 6.5, max: 7.5},
-        {name:"Alkalinity ", min: 4,  max: 8},
-        {name:"General Hardness", min: 4,  max: 12},
-    ]
-
-    const cichildParamters = [
-        {name:"Temperature", min: 72, max: 82},
-        {name: "Ammonia", min: 0,  max: 0},
-        {name: "Nitrite", min: 0,  max: 0},
-        {name: "Nitrate", min: 0,  max: 50},
-        {name:"PH", min: 7.8, max: 8.5},
-        {name:"Alkalinity ", min: 10,  max: 18},
-        {name:"General Hardness", min: 12,  max: 20},
-    ]
-
-    const plantsDiscusParamters = [
-        {name:"Temperature", min: 76, max: 86},
-        {name: "Ammonia", min: 0,  max: 0},
-        {name: "Nitrite", min: 0,  max: 0},
-        {name: "Nitrate", min: 0,  max: 30},
-        {name:"PH", min: 6.0, max: 7.5},
-        {name:"Alkalinity ", min: 3,  max: 8},
-        {name:"General Hardness", min: 3,  max: 8},
-    ]
-
-    const brackish = [
-        {name:"Temperature", min: 72, max: 82},
-        {name: "Ammonia", min: 0,  max: 0},
-        {name: "Nitrite", min: 0,  max: 0},
-        {name: "Nitrate", min: 0,  max: 50},
-        {name:"PH", min: 7.5, max: 8.4},
-        {name:"Alkalinity ", min: 10,  max: 18},
-        {name:"General Hardness", min: 12,  max: 20},
-    ]
-
-    const pond = [
-        {name:"Temperature", min: 33, max: 86},
-        {name: "Ammonia", min: 0,  max: 0},
-        {name: "Nitrite", min: 0,  max: 0},
-        {name: "Nitrate", min: 0,  max: 50},
-        {name:"PH", min: 6.5, max: 7.5},
-        {name:"Alkalinity ", min: 4,  max: 8},
-        {name:"General Hardness", min: 4,  max: 12},
-    ]
-
-    const [aquariumType, setAquariumType] = React.useState(communityParamters)
+    const [aquariumType, setAquariumType] = React.useState(communityParameters)
 
     function handleResult (input, index) {
         if (input < aquariumType[index].min) return (<p className='text-[#FF0000] font-semibold cursor-pointer'>LOW</p>)
@@ -82,13 +33,13 @@ export default function FreshwaterResults( {data, setDisplayResults }){
     };
     const handleClose = (event) => {
         if (event.target.value === "Freshwater Community"){
-            setAquariumType(communityParamters)
+            setAquariumType(communityParameters)
             setName(event.target.value)
         } else if (event.target.value === "African Cichlid") {
-            setAquariumType(cichildParamters)
+            setAquariumType(cichlidParameters)
             setName(event.target.value)
         } else if (event.target.value === "Freshwater Plants & Discus") {
-            setAquariumType(plantsDiscusParamters)
+            setAquariumType(plantsDiscusParameters)
             setName(event.target.value)
         } else if (event.target.value === "Brackish") {
             setAquariumType(brackish)
