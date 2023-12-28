@@ -1,4 +1,4 @@
-import community from "./Fish-aquariums-scaled.jpg";
+import community from "./fish-aquariums.jpg";
 
 export {
     community

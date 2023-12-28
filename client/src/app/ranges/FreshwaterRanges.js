@@ -13,7 +13,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import {community} from "../assets/index"
+import {community} from "../assets/index.js"
 
 
 export default function FreshwaterRanges() {
@@ -33,7 +33,7 @@ export default function FreshwaterRanges() {
                         <CardMedia
                             component="img"
                             height="140"
-                            image={community}
+                            src={community}
                             alt="green iguana"
                         />
                         <CardContent>
