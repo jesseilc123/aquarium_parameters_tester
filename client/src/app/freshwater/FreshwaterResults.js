@@ -64,7 +64,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     >
                         Aquarium type
                     </Button>
-                    <p className='pr-2'>{name}</p>
+                    <p className=''>{name}</p>
                 </div>
                 <Menu
                     id="basic-menu"
