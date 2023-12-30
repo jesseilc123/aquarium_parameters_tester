@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { communityParameters, cichlidParameters,  plantsDiscusParameters, brackish, pond} from '../constants/index'
+import { communityParameters, cichlidParameters,  plantsDiscusParameters, brackishParameters, pondParameters} from '../constants/index'
 
 export default function FreshwaterResults( {data, setDisplayResults }){
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -42,17 +42,17 @@ export default function FreshwaterResults( {data, setDisplayResults }){
             setAquariumType(plantsDiscusParameters)
             setName(event.target.value)
         } else if (event.target.value === "Brackish") {
-            setAquariumType(brackish)
+            setAquariumType(brackishParameters)
             setName(event.target.value)
         } else if (event.target.value === "Pond") {
-            setAquariumType(pond)
+            setAquariumType(pondParameters)
             setName(event.target.value)
         }
         setAnchorEl(null);
     };
 
     return (
-        <div>
+        <div className='mx-2'>
             <div>
                 <div className='flex flex-row items-center justify-between'>
                     <Button
@@ -64,7 +64,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     >
                         Aquarium type
                     </Button>
-                    <p className=''>{name}</p>
+                    <p className='text-overflow: ellipsis'>{name}</p>
                 </div>
                 <Menu
                     id="basic-menu"

@@ -44,7 +44,7 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
     };
 
     return (
-        <div>
+        <div className='mx-2'>
             <div>
                 <div className='flex flex-row items-center justify-between'>
                     <Button
