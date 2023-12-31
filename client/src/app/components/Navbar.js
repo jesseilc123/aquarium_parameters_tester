@@ -36,6 +36,14 @@ export default function Navbar( { darkMode, setDarkMode }) {
                                     Home
                                 </button>
                             </Link>
+                            <Link href="/tests">
+                                <button
+                                    value="Tests"
+                                    className={`dark:text-blue-400 hover:text-grey-300`}
+                                >
+                                    Tests
+                                </button>
+                            </Link>
                             <Link href="/ranges">
                                 <button 
                                     value="Ranges"
