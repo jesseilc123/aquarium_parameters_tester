@@ -1,5 +1,5 @@
 "use client"; // This is a client component
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,6 +9,20 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link'
 
 export default function Navbar( { darkMode, setDarkMode }) {
+    const data = window.localStorage.getItem('NAVBAR_STATE')
+    const [currentTab, setCurrentTab] = useState("Home")
+
+    useEffect(() => {
+        if (data === ""){
+            setCurrentTab("Home")
+        }
+        setCurrentTab(JSON.parse(data))
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('NAVBAR_STATE', JSON.stringify(currentTab));
+    }, [currentTab])
+
     return (
         <Box sx={{ display: 'flex'}} >
             <CssBaseline />
@@ -31,7 +45,8 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/">
                                 <button
                                     value="Home"
-                                    className={`dark:text-blue-400 hover:text-grey-300`}
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${currentTab === "Home" ? "text-grey-300" : "" }`}
+                                    onClick={(e) => setCurrentTab(e.target.value)}
                                 >
                                     Home
                                 </button>
@@ -39,7 +54,8 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/tests">
                                 <button
                                     value="Tests"
-                                    className={`dark:text-blue-400 hover:text-grey-300`}
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${currentTab === "Tests" ? "text-grey-300" : "" }`}
+                                    onClick={(e) => setCurrentTab(e.target.value)}
                                 >
                                     Tests
                                 </button>
@@ -47,7 +63,8 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/ranges">
                                 <button 
                                     value="Ranges"
-                                    className={`dark:text-blue-400 hover:text-grey-300 `}
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${currentTab === "Ranges" ? "text-grey-300" : "" }`}
+                                    onClick={(e) => setCurrentTab(e.target.value)}
                                 >
                                     Ranges
                                 </button>

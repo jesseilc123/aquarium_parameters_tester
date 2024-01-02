@@ -26,7 +26,7 @@ export default function RangeDetails({ params }) {
     }, [setRanges])
 
     return (
-        <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col mt-[64px]'>
+        <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col mt-[64px] mb-11'>
             <div className='flex w-full px-4 items-center flex-col gap-2'>
                 <Button 
                     onClick={() => router.push('/ranges')}

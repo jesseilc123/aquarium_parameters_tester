@@ -9,7 +9,7 @@ import { CardActionArea } from '@mui/material';
 import { communities } from '../constants';
 import Link from 'next/link'
 
-export default function FreshwaterRanges({ setActive }) {
+export default function FreshwaterRanges() {
     return(
         <div className='flex flex-wrap gap-3 mb-10 px-4 w-full items-center justify-center'>
             {communities.map((item) => (

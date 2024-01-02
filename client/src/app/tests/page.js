@@ -1,12 +1,24 @@
 "use client";
 
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import ToggleForm from "../components/ToggleForm"
 import SaltwaterPage from "./saltwater/SaltwaterPage"
 import FreshwaterPage from "./freshwater/FreshwaterPage";
 
 export default function Tests() {
-    const [active, setActive] = React.useState("freshwater")
+    const data = window.localStorage.getItem('TEST_STATE')
+    const [active, setActive] = useState("freshwater")
+
+    useEffect(() => {
+        if (data === ""){
+            setCurrentTab("freshwater")
+        }
+        setActive(JSON.parse(data))
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
+    }, [active])
 
     return (
         <main className='flex min-h-screen h-full flex-col'>

@@ -15,7 +15,7 @@ export default function SaltwaterRoute({ route, ranges  }) {
                 {route !==  "salt_all" ? (
                     <div className='flex flex-col gap-2 md:min-w-[500px]'>
                         <TableContainer component={Paper}>
-                            <Table sx={{ border: 2}} aria-label="simple table">
+                            <Table sx={{ border: 2}} stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell sx={{ fontWeight: "bold"}}>Parameter</TableCell>
