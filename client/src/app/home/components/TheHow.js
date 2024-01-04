@@ -1,9 +1,14 @@
 "use client";
+import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 
 export default function TheHow() {
     return (
-        <div >
-            <h1>How to Test your water parameters</h1>
-        </div>
+        <Card>
+            <CardContent>
+                <Typography variant='h4'>How to test your water parameters</Typography>
+            </CardContent>
+        </Card>
     );
 };

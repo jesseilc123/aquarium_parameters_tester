@@ -13,9 +13,9 @@ export default function SaltwaterRoute({ route, ranges  }) {
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col'>
             <div className='flex w-full px-4 items-center justify-center'>
                 {route !==  "salt_all" ? (
-                    <div className='flex flex-col gap-2 md:min-w-[500px]'>
-                        <TableContainer component={Paper}>
-                            <Table sx={{ border: 2}} stickyHeader aria-label="sticky table">
+                    <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 - border-black'>
+                        <TableContainer sx={{ maxHeight: 700 }}>
+                            <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell sx={{ fontWeight: "bold"}}>Parameter</TableCell>
@@ -25,8 +25,8 @@ export default function SaltwaterRoute({ route, ranges  }) {
                                 <TableBody>
                                     {ranges.map((row) => (
                                         <TableRow
-                                        key={row.parameter}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                            key={row.parameter}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
                                             <TableCell component="th" scope="row">
                                                 {`${row.parameter} ${row.unit}`}
@@ -42,31 +42,27 @@ export default function SaltwaterRoute({ route, ranges  }) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </div>
+                    </Paper>
                 ) : (
-                    <div className='flex flex-col gap-2 w-full xl:max-w-[55%] px-4'>
-                        <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650, border: 2}} aria-label="simple table" style={{ tableLayout: "fixed" }}>
+                    <Paper sx={{ display: "flex", width: "100%", maxWidth: 700, overflow: 'hidden', height: "100%" }} className='border-2 - border-black'>
+                        <TableContainer sx={{ maxHeight: "screen" }}>
+                            <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell 
-                                            component="th" 
-                                            scope="row" 
-                                            className='sticky left-0 bg-white dark:bg-[#1E1E1E] border-r-2 border-r-black'
-                                        >
+                                        <TableCell component="th" scope="row" className='font-bold' sx={{minWidth: 150}}>
                                             Parameter
                                         </TableCell>
-                                        <TableCell align="right">FOWLR</TableCell>
-                                        <TableCell align="right">Reef</TableCell>
-                                        <TableCell align="right">Ocean</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 150}}>FOWLR</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 150}}>Reef</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 150}}>Ocean</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {ranges.map((row) => (
-                                        <TableRow
+                                        <TableRow 
                                             key={row.parameter}
                                         >
-                                            <TableCell className="sticky left-0 bg-white dark:bg-[#1E1E1E] border-r-2 border-r-black">{row.parameter}</TableCell>
+                                            <TableCell >{row.parameter}</TableCell>
                                             <TableCell align="right">{row.reef}</TableCell>
                                             <TableCell align="right">{row.fowlr}</TableCell>
                                             <TableCell align="right">{row.ocean}</TableCell>
@@ -75,7 +71,7 @@ export default function SaltwaterRoute({ route, ranges  }) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </div>
+                    </Paper>
                 )}
             </div>
         </div>

@@ -9,19 +9,19 @@ import Typography from '@mui/material/Typography';
 import Link from 'next/link'
 
 export default function Navbar( { darkMode, setDarkMode }) {
-    const data = window.localStorage.getItem('NAVBAR_STATE')
+    // const data = window.localStorage.getItem('NAVBAR_STATE')
     const [currentTab, setCurrentTab] = useState("Home")
 
-    useEffect(() => {
-        if (data === ""){
-            setCurrentTab("Home")
-        }
-        setCurrentTab(JSON.parse(data))
-    }, [])
+    // useEffect(() => {
+    //     if (data === "" && data === undefined){
+    //         setCurrentTab("Home")
+    //     }
+    //     setCurrentTab(JSON.parse(data))
+    // }, [])
 
-    useEffect(() => {
-        window.localStorage.setItem('NAVBAR_STATE', JSON.stringify(currentTab));
-    }, [currentTab])
+    // useEffect(() => {
+    //     window.localStorage.setItem('NAVBAR_STATE', JSON.stringify(currentTab));
+    // }, [currentTab])
 
     return (
         <Box sx={{ display: 'flex'}} >

@@ -13,9 +13,9 @@ export default function FreshwaterRoute({ route, ranges }) {
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col'>
             <div className='flex w-full px-4 items-center justify-center'>
                 {route !== "fresh_all" ? (
-                    <div className='flex flex-col gap-2 md:min-w-[500px]'>
-                        <TableContainer component={Paper}>
-                            <Table sx={{ border: 2}} aria-label="simple table">
+                    <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 - border-black'>
+                        <TableContainer sx={{ maxHeight: 440}}>
+                            <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
                                         <TableCell sx={{ fontWeight: "bold"}}>Parameter</TableCell>
@@ -25,8 +25,8 @@ export default function FreshwaterRoute({ route, ranges }) {
                                 <TableBody>
                                     {ranges.map((row) => (
                                         <TableRow
-                                        key={row.parameter}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                            key={row.parameter}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
                                             <TableCell component="th" scope="row">
                                                 {`${row.parameter} ${row.unit}`}
@@ -42,25 +42,21 @@ export default function FreshwaterRoute({ route, ranges }) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </div>
+                    </Paper>
                 ) : (
-                    <div className='flex flex-col w-full xl:max-w-[55%] px-4'>
-                        <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650, border: 2}} aria-label="simple table" style={{ tableLayout: "fixed" }}>
+                    <Paper sx={{ width: "100%", maxWidth: 700, overflow: 'hidden' }} className='border-2 - border-black'>
+                        <TableContainer sx={{ maxHeight:  600 }}>
+                            <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell 
-                                            component="th" 
-                                            scope="row" 
-                                            className='sticky left-0 bg-white dark:bg-[#1E1E1E] border-r-2 border-r-black'
-                                        >
+                                        <TableCell component="th" scope="row" className='font-bold' sx={{minWidth: 100}}>
                                             Parameter
                                         </TableCell>
-                                        <TableCell align="right">Freshwater Community</TableCell>
-                                        <TableCell align="right">African Cichlid</TableCell>
-                                        <TableCell align="right">Freshwater Plants & Discus</TableCell>
-                                        <TableCell align="right">Brackish</TableCell>
-                                        <TableCell align="right">Pond</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 100}}>Freshwater Community</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 100}}>African Cichlid</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 100}}>Freshwater Plants & Discus</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 100}}>Brackish</TableCell>
+                                        <TableCell align="right" className='font-bold' sx={{minWidth: 100}}>Pond</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -68,7 +64,7 @@ export default function FreshwaterRoute({ route, ranges }) {
                                         <TableRow
                                             key={row.parameter}
                                         >
-                                            <TableCell className="sticky left-0 bg-white dark:bg-[#1E1E1E] border-r-2 border-r-black">{row.parameter}</TableCell>
+                                            <TableCell >{row.parameter}</TableCell>
                                             <TableCell align="right">{row.community}</TableCell>
                                             <TableCell align="right">{row.cichlid}</TableCell>
                                             <TableCell align="right">{row.plantsDiscus}</TableCell>
@@ -79,7 +75,7 @@ export default function FreshwaterRoute({ route, ranges }) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </div>
+                    </Paper>
                 )}
             </div>
         </div>
