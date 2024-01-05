@@ -6,20 +6,21 @@ import SaltwaterPage from "./saltwater/SaltwaterPage"
 import FreshwaterPage from "./freshwater/FreshwaterPage";
 
 export default function Tests() {
-    // window.localStorage.setItem('TEST_STATE', JSON.stringify("freshwater"))
-    // const data = window.localStorage.getItem('TEST_STATE')
     const [active, setActive] = useState("freshwater")
+    
+    if (typeof window !== "undefined") {
+        const data = window.localStorage.getItem('TEST_STATE')
+        useEffect(() => {
+            if (data === ""){
+                setCurrentTab("freshwater")
+            }
+            setActive(JSON.parse(data))
+        }, [data])
 
-    // useEffect(() => {
-    //     if (data === ""){
-    //         setCurrentTab("freshwater")
-    //     }
-    //     setActive(JSON.parse(data))
-    // }, [data])
-
-    // useEffect(() => {
-    //     window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
-    // }, [active])
+        useEffect(() => {
+            window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
+        }, [active])
+    }
 
     return (
         <main className='flex w-full min-h-screen h-full flex-col'>

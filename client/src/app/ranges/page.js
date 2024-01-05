@@ -5,22 +5,21 @@ import FreshwaterRanges from './FreshwaterRanges';
 import SaltwaterRanges from './SaltwaterRanges'
 
 export default function Ranges() {
-    // const data = window.localStorage.getItem('RANGE_STATE')
-    // if (data === undefined) {
-    //     window.localStorage.setItem('RANGE_STATE', JSON.stringify("freshwater"))
-    // }
     const [active, setActive] = useState("freshwater")
 
-    // useEffect(() => {
-    //     if (data === ""){
-    //         setCurrentTab("freshwater")
-    //     }
-    //     setActive(JSON.parse(data))
-    // }, [data])
+    if (typeof window !== "undefined") {
+        const data = window.localStorage.getItem('RANGE_STATE')
+        useEffect(() => {
+            if (data === ""){
+                setCurrentTab("freshwater")
+            }
+            setActive(JSON.parse(data))
+        }, [])
 
-    // useEffect(() => {
-    //     window.localStorage.setItem('RANGE_STATE', JSON.stringify(active));
-    // }, [active])
+        useEffect(() => {
+            window.localStorage.setItem('RANGE_STATE', JSON.stringify(active));
+        }, [active])
+    }
 
     return (
         <main className='flex min-h-screen h-full'>

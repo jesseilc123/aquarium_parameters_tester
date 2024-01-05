@@ -10,19 +10,21 @@ import Link from 'next/link'
 import { Avatar } from "@mui/material";
 
 export default function Navbar( { darkMode, setDarkMode }) {
-    // const data = window.localStorage.getItem('NAVBAR_STATE')
     const [currentTab, setCurrentTab] = useState("Home")
+    if (typeof window !== "undefined") {
+        const data = window.localStorage.getItem('NAVBAR_STATE')
+        useEffect(() => {
+            if (typeof data === "undefined"){
+                setCurrentTab("Home")
+            }
+            console.log(data)
+            setCurrentTab(JSON.parse(data))
+        }, [])
 
-    // useEffect(() => {
-    //     if (data === "" && data === undefined){
-    //         setCurrentTab("Home")
-    //     }
-    //     setCurrentTab(JSON.parse(data))
-    // }, [])
-
-    // useEffect(() => {
-    //     window.localStorage.setItem('NAVBAR_STATE', JSON.stringify(currentTab));
-    // }, [currentTab])
+        useEffect(() => {
+            window.localStorage.setItem('NAVBAR_STATE', JSON.stringify(currentTab));
+        }, [currentTab])
+    }
 
     return (
         <Box sx={{ display: 'flex'}} >

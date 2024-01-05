@@ -4,7 +4,6 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const ToggleForm = ({ active, setActive }) => {
     
-
     const handleClick = (event) => {
         setActive(event.target.value);
     }
