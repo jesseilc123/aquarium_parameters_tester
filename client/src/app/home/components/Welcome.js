@@ -21,7 +21,7 @@ export default function Welcome() {
                     >
                         &nbsp;Tests&nbsp;
                     </span> 
-                    tab allows you to input data you've collected from your test kit to see if the results are in good or bad ranges for your tank type. The 
+                    tab allows you to input data you&apos;ve collected from your test kit to see if the results are in good or bad ranges for your tank type. The 
                     <span  
                         className='font-bold'
                     >

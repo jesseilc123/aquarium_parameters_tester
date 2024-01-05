@@ -23,7 +23,7 @@ export default function RangeDetails({ params }) {
                 setRanges(reefs[i].parameters)
             }
         }
-    }, [setRanges])
+    }, [setRanges, route])
 
     return (
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col mt-[64px] mb-11'>
