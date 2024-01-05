@@ -7,21 +7,22 @@ import FreshwaterPage from "./freshwater/FreshwaterPage";
 
 export default function Tests() {
     const [active, setActive] = useState("freshwater")
-    
+    let data
     if (typeof window !== "undefined") {
-        const data = window.localStorage.getItem('TEST_STATE')
-        useEffect(() => {
-            if (data === ""){
-                setCurrentTab("freshwater")
-            }
-            setActive(JSON.parse(data))
-        }, [data])
-
-        useEffect(() => {
-            window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
-        }, [active])
+        data = window.localStorage.getItem('TEST_STATE')
     }
 
+    useEffect(() => {
+        if (data === ""){
+            setCurrentTab("freshwater")
+        }
+        setActive(JSON.parse(data))
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
+    }, [active])
+    
     return (
         <main className='flex w-full min-h-screen h-full flex-col'>
             <div className="flex h-full w-full items-center justify-start sm:justify-center flex-col mt-[64px]">

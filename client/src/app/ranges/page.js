@@ -6,20 +6,21 @@ import SaltwaterRanges from './SaltwaterRanges'
 
 export default function Ranges() {
     const [active, setActive] = useState("freshwater")
-
+    let data
     if (typeof window !== "undefined") {
-        const data = window.localStorage.getItem('RANGE_STATE')
-        useEffect(() => {
-            if (data === ""){
-                setCurrentTab("freshwater")
-            }
-            setActive(JSON.parse(data))
-        }, [])
-
-        useEffect(() => {
-            window.localStorage.setItem('RANGE_STATE', JSON.stringify(active));
-        }, [active])
+        data = window.localStorage.getItem('RANGE_STATE')
     }
+
+    useEffect(() => {
+        if (data === ""){
+            setCurrentTab("freshwater")
+        }
+        setActive(JSON.parse(data))
+    }, [])
+
+    useEffect(() => {
+        window.localStorage.setItem('RANGE_STATE', JSON.stringify(active));
+    }, [active])
 
     return (
         <main className='flex min-h-screen h-full'>
