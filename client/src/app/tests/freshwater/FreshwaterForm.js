@@ -34,145 +34,143 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
     }
 
     return (
-        <div className="flex justify-center items-center flex-col">  
-            <form 
-                component="form" 
-                autoComplete='off' 
-                className="flex flex-col gap-2 justify-center items-center mb-8" 
-                noValidate 
-                onSubmit={handleFreshwaterFormSubmit}
-            >
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={temperature}
-                    label="Temperature"
-                    placeholder='ex: 78'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">°F</InputAdornment>,
+        <form 
+            component="form" 
+            autoComplete='off' 
+            className="flex flex-col gap-2 justify-center items-center mb-8" 
+            noValidate 
+            onSubmit={handleFreshwaterFormSubmit}
+        >
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={temperature}
+                label="Temperature"
+                placeholder='ex: 78'
+                sx={{ display: "flex", width: 1}}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">°F</InputAdornment>,
 
-                    }}
-                    onChange={(e) => setTemperature(e.target.value)}
-                    onBlur={(e) => {
-                        if (e.target.value === "") {
-                            setTemperature(null)
-                        } else {
-                            setTemperature(parseInt(e.target.value))
-                        }
-                    }}
-                    format="###"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={ammonia}
-                    label="Ammonia"
-                    placeholder='ex: 0.25'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-                    }}
-                    onChange={(e) => setAmmonia(e.target.value)}
-                    onBlur={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
-                    format="#.##"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={nitrite}
-                    label="Nitrite"
-                    placeholder='ex: 0.25'
-                    sx={{ display: "flex", width: 1}}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-                    }}
-                    onChange={(e) => setNitrite(e.target.value)}
-                    onBlur={(e) => setNitrite(parseFloat(e.target.value).toFixed(2))}
-                    format="#.##"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    className='text-white'
-                    value={nitrate}
-                    label="Nitrate"
-                    placeholder='ex: 10'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
-                    }}
-                    onChange={(e) => setNitrate(e.target.value)}
-                    onBlur={(e) => {
-                        if (e.target.value === "") {
-                            setNitrate(null)
-                        } else {
-                            setNitrate(parseInt(e.target.value))
-                        }
-                    }}
-                    format="###"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={pH}
-                    label="pH"
-                    placeholder='ex: 7.4'
-                    sx={{ display: "flex", width: 1 }}
-                    onChange={(e) => setPH(e.target.value)}
-                    onBlur={(e) => setPH(parseFloat(e.target.value).toFixed(1))}
-                    format="#.#"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={alkalinity}
-                    label="Alkalinity"
-                    placeholder='ex: 6'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">KH</InputAdornment>,
-                    }}
-                    onChange={(e) => setAlkalinity(e.target.value)}
-                    onBlur={(e) => {
-                        if (e.target.value === "") {
-                            setAlkalinity(null)
-                        } else{
-                            setAlkalinity(parseInt(e.target.value))
-                        }
-                    }}
-                    format="##"
-                />
-                <PatternFormat
-                    customInput={TextField}
-                    type="text"
-                    value={gH}
-                    label="General Hardness"
-                    placeholder='ex: 4'
-                    sx={{ display: "flex", width: 1 }}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">GH</InputAdornment>,
-                    }}
-                    onChange={(e) => setGH(e.target.value)}
-                    onBlur={(e) => {
-                        if (e.target.value === "") {
-                            setGH(null)
-                        } else{
-                            setGH(parseInt(e.target.value))
-                        }
-                    }}
-                    format="###"
-                />
-                <Button 
-                    type="submit" 
-                    className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900"
-                    variant="contained"
-                    sx={{border: 2}}
-                >
-                    Submit
-                </Button>
-            </form>
-        </div>
+                }}
+                onChange={(e) => setTemperature(e.target.value)}
+                onBlur={(e) => {
+                    if (e.target.value === "") {
+                        setTemperature(null)
+                    } else {
+                        setTemperature(parseInt(e.target.value))
+                    }
+                }}
+                format="###"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={ammonia}
+                label="Ammonia"
+                placeholder='ex: 0.25'
+                sx={{ display: "flex", width: 1 }}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
+                }}
+                onChange={(e) => setAmmonia(e.target.value)}
+                onBlur={(e) => setAmmonia(parseFloat(e.target.value).toFixed(2))}
+                format="#.##"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={nitrite}
+                label="Nitrite"
+                placeholder='ex: 0.25'
+                sx={{ display: "flex", width: 1}}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
+                }}
+                onChange={(e) => setNitrite(e.target.value)}
+                onBlur={(e) => setNitrite(parseFloat(e.target.value).toFixed(2))}
+                format="#.##"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                className='text-white'
+                value={nitrate}
+                label="Nitrate"
+                placeholder='ex: 10'
+                sx={{ display: "flex", width: 1 }}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
+                }}
+                onChange={(e) => setNitrate(e.target.value)}
+                onBlur={(e) => {
+                    if (e.target.value === "") {
+                        setNitrate(null)
+                    } else {
+                        setNitrate(parseInt(e.target.value))
+                    }
+                }}
+                format="###"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={pH}
+                label="pH"
+                placeholder='ex: 7.4'
+                sx={{ display: "flex", width: 1 }}
+                onChange={(e) => setPH(e.target.value)}
+                onBlur={(e) => setPH(parseFloat(e.target.value).toFixed(1))}
+                format="#.#"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={alkalinity}
+                label="Alkalinity"
+                placeholder='ex: 6'
+                sx={{ display: "flex", width: 1 }}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">KH</InputAdornment>,
+                }}
+                onChange={(e) => setAlkalinity(e.target.value)}
+                onBlur={(e) => {
+                    if (e.target.value === "") {
+                        setAlkalinity(null)
+                    } else{
+                        setAlkalinity(parseInt(e.target.value))
+                    }
+                }}
+                format="##"
+            />
+            <PatternFormat
+                customInput={TextField}
+                type="text"
+                value={gH}
+                label="General Hardness"
+                placeholder='ex: 4'
+                sx={{ display: "flex", width: 1 }}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">GH</InputAdornment>,
+                }}
+                onChange={(e) => setGH(e.target.value)}
+                onBlur={(e) => {
+                    if (e.target.value === "") {
+                        setGH(null)
+                    } else{
+                        setGH(parseInt(e.target.value))
+                    }
+                }}
+                format="###"
+            />
+            <Button 
+                type="submit" 
+                className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900"
+                variant="contained"
+                sx={{border: 2}}
+            >
+                Submit
+            </Button>
+        </form>
     );
 }
 

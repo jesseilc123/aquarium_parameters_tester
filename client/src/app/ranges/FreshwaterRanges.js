@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 export default function FreshwaterRanges() {
     return(
-        <div className='flex flex-wrap gap-3 mb-10 px-4 w-full items-center justify-center'>
+        <div className='flex flex-wrap gap-3 mb-10 px-4 w-full items-center justify-center max-w-[80%]'>
             {communities.map((item) => (
                 <Link key={item.route} href={`/ranges/${item.route}`}>
                     <Card sx={{ width: 345, height: 300 }} elevation={4}>

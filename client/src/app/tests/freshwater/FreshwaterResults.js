@@ -52,7 +52,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
     };
 
     return (
-        <div className='mx-2'>
+        <div className='flex flex-col mx-2 w-full sm:min-w-[440px]'>
             <div>
                 <div className='flex flex-row items-center justify-between'>
                     <Button
@@ -148,16 +148,16 @@ export default function FreshwaterResults( {data, setDisplayResults }){
             </TableContainer>
             <div className='flex items-center justify-center mb-8'>
                 <Button 
-                        type="button" 
-                        className="text-black dark:text-blue-400 mt-4 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900" 
-                        variant="contained"
-                        sx={{border: 2}}
-                        onClick={() => {
-                            window.scrollTo(0, 0)
-                            setDisplayResults(false)
-                        }}
-                    >
-                        Back
+                    type="button" 
+                    className="text-black dark:text-blue-400 mt-4 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900" 
+                    variant="contained"
+                    sx={{border: 2}}
+                    onClick={() => {
+                        window.scrollTo(0, 0)
+                        setDisplayResults(false)
+                    }}
+                >
+                    Back
                 </Button>
             </div>
         </div> 
