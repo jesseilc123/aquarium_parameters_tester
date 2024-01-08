@@ -7,10 +7,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 
-export default function FreshwaterRoute({ route, ranges }) {
+export default function FreshwaterRoute({ route, ranges, title }) {
     return (
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col'>
+            <Typography variant='h5' className='mb-2'>{title}</Typography>
             <div className='flex w-full px-4 items-center justify-center'>
                 {route !== "fresh_all" ? (
                     <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 - border-black'>

@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-// import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeToggle';
 import Link from 'next/link'
 import { Avatar } from "@mui/material";
 import { usePathname } from 'next/navigation'
@@ -54,15 +54,15 @@ export default function Navbar( { darkMode, setDarkMode }) {
                             <Link href="/ranges">
                                 <button 
                                     value="Ranges"
-                                    className={`dark:text-blue-400 hover:text-grey-300 ${pathname === "/ranges" ? "text-grey-300 font-bold" : "" }`}
+                                    className={`dark:text-blue-400 hover:text-grey-300 ${pathname.includes("ranges") ? "text-grey-300 font-bold" : "" }`}
                                 >
                                     Ranges
                                 </button>
                             </Link>
                         </div>
-                        {/* <Box className="flex flex-row items-center">
+                        <Box className="flex flex-row items-center">
                             <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-                        </Box> */}
+                        </Box>
                     </div>
                 </Toolbar>
             </AppBar>
