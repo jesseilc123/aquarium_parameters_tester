@@ -1,17 +1,17 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import FreshwaterRanges from './FreshwaterRanges';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, Card } from '@mui/material';
 import { useRouter } from 'next/navigation'
 
 export default function Freshwater() {
     const router = useRouter()
     
     return (
-        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px] mb-5">
-            <div>
-                <Typography variant='h2' align="center" className='mb-6'>Freshwater Aquariums</Typography>
-            </div>
+        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px] mb-20">
+            <Card elevation={8} className='mb-6 px-2'>
+                <Typography variant='h2' align="center">Freshwater Aquariums</Typography>
+            </Card>
             <FreshwaterRanges />
             <div className='flex mt-4'>
                 <Button 

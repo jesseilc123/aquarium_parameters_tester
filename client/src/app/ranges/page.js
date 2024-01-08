@@ -9,8 +9,10 @@ import Link from 'next/link';
 
 export default function Ranges() {
     return (
-        <main className='flex flex-col items-center justify-center mt-[80px]'>
-            <Typography variant='h2' className='mb-4'>Aquariums</Typography>
+        <main className='flex flex-col items-center justify-center mt-[80px] mb-5'>
+            <Card elevation={8} className='mb-4 px-2'>
+                <Typography variant='h2' className='px-2'>Aquariums</Typography>
+            </Card>
             <div className='flex justify-center items-center flex-row h-full w-full flex-wrap gap-4 px-2'>
                 <Link href={"/ranges/freshwater"}>
                     <Card sx={{maxWidth: 750, maxHeight: 750}} elevation={4} >

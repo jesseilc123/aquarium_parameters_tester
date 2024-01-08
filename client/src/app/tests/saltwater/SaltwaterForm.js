@@ -48,7 +48,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
         <form 
             component="form" 
             autoComplete='off' 
-            className="flex flex-col items-center justify-center mb-10" 
+            className="flex flex-col items-center justify-center" 
             noValidate 
             onSubmit={handleSaltwaterFormSubmit}
         >

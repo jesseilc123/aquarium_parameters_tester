@@ -16,18 +16,20 @@ export default function Welcome() {
                 <Divider />
                 <Typography className='mt-2' gutterBottom>
                     The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks. The 
-                    <span 
-                        className='font-bold'
+                    <Link 
+                        href={"/tests"}
+                        className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'
                     >
                         &nbsp;Tests&nbsp;
-                    </span> 
+                    </Link> 
                     tab allows you to input data you&apos;ve collected from your test kit to see if the results are in good or bad ranges for your tank type. The 
-                    <span  
-                        className='font-bold'
+                    <Link
+                        href={"/ranges"}  
+                        className="font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500"
                     >
                         &nbsp;Ranges&nbsp;
-                    </span>
-                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from <Link href="https://www.liveaquaria.com/article/89/?aid=89" className='font-bold'>LiveAquaria</Link>, so feel free to check them out if you have any questions on parameter ranges. You can also contact me directly if you have any questions or suggestions to make this website better. I want to create a website to not only help myself, but other alike!  
+                    </Link>
+                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from <Link href="https://www.liveaquaria.com/article/89/?aid=89" className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'>LiveAquaria</Link>, so feel free to check them out if you have any questions on parameter ranges. You can also contact me directly if you have any questions or suggestions to make this website better. I want to create a website to not only help myself, but other alike!  
                 </Typography>
                 <Divider />
                 <div className='flex justify-center flex-wrap items-center gap-4 sm:gap-20 mt-4'>
@@ -44,15 +46,15 @@ export default function Welcome() {
                     <div className='flex flex-row gap-4'>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src='/github.png'/>
-                            <Link className="hover:text-[#0000FF]" href={"https://github.com/jesseilc123/aquarium_parameters_tester"}>GitHub</Link>
+                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://github.com/jesseilc123/aquarium_parameters_tester"}>GitHub</Link>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src='/devto.png'/>
-                            <Link className="hover:text-[#0000FF]" href={"https://dev.to/jesseilc123"}>Dev.to</Link>
+                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://dev.to/jesseilc123"}>Dev.to</Link>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src="/linkedin.png"/>
-                            <Link className="hover:text-[#0000FF]" href={"https://www.linkedin.com/in/jesse-ilc-se2023/"}>LinkedIn</Link>
+                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://www.linkedin.com/in/jesse-ilc-se2023/"}>LinkedIn</Link>
                         </div>
                     </div>
                 </div>

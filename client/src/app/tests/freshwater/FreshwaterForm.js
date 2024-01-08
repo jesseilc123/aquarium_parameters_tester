@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { TextField } from '@mui/material';
-// import InputAdornment from '@mui/material/InputAdornment';
 import { styled } from '@mui/system';
 import { PatternFormat } from 'react-number-format';
 import Button from '@mui/material/Button';
@@ -37,7 +36,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
         <form 
             component="form" 
             autoComplete='off' 
-            className="flex flex-col gap-2 justify-center items-center mb-8" 
+            className="flex flex-col gap-2 justify-center items-center" 
             noValidate 
             onSubmit={handleFreshwaterFormSubmit}
         >

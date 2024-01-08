@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { StyledEngineProvider } from '@mui/material'
-// import Providers from './providers'
+import Providers from './providers'
 import Navbar from './components/Navbar'
 
 
@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Navbar />
         <StyledEngineProvider>
-            {/* <Providers> */}
-            {children}
-            {/* </Providers> */}
+            <Providers>
+                {children}
+            </Providers>
         </StyledEngineProvider>
       </body>
     </html>

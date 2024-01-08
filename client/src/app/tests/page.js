@@ -7,25 +7,10 @@ import FreshwaterPage from "./freshwater/FreshwaterPage";
 
 export default function Tests() {
     const [active, setActive] = useState("freshwater")
-    // let data
-    // if (typeof window !== "undefined") {
-    //     data = window.localStorage.getItem('TEST_STATE')
-    // }
-
-    // useEffect(() => {
-    //     if (data === ""){
-    //         setCurrentTab("freshwater")
-    //     }
-    //     setActive(JSON.parse(data))
-    // }, [])
-
-    // useEffect(() => {
-    //     window.localStorage.setItem('TEST_STATE', JSON.stringify(active));
-    // }, [active])
     
     return (
         <main className='flex w-full min-h-screen h-full flex-col'>
-            <div className="flex h-full w-full items-center justify-start sm:justify-center flex-col mt-[64px]">
+            <div className="flex h-full w-full items-center sm:justify-center flex-col mt-[64px] mb-20">
                 <ToggleForm active={active} setActive={setActive}/>
                 {active === "freshwater" ? (<FreshwaterPage />) : (<SaltwaterPage  />)}
             </div>

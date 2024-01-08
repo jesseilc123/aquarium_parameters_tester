@@ -26,7 +26,7 @@ export default function TheHow() {
                     <Image className=" mt-2 mb-2" src="/water_cycle.png" alt="Water Cycle" width={1000} height={550}/>
                 </div>
                 <Link 
-                    className="hover:text-[#0000FF]"
+                    className="hover:text-blue-400 dark:hover:text-gray-500"
                     href={"https://www.cheapplantedaquarium.com/cycling-your-aquarium/"}
                 >
                     https://www.cheapplantedaquarium.com

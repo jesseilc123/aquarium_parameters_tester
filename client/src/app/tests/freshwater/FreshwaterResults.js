@@ -52,7 +52,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
     };
 
     return (
-        <div className='flex flex-col mx-2 w-full sm:min-w-[440px]'>
+        <div className='flex flex-col px-2 w-full sm:min-w-[440px]'>
             <div>
                 <div className='flex flex-row items-center justify-between'>
                     <Button

@@ -20,7 +20,7 @@ export default function SaltwaterRoute({ route, ranges, title }) {
                             <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell sx={{ fontWeight: "bold"}}>Parameter</TableCell>
+                                        <TableCell sx={{ fontWeight: "bold"}} >Parameter</TableCell>
                                         <TableCell align="right" sx={{ fontWeight: "bold"}}>Ranges</TableCell>
                                     </TableRow>
                                 </TableHead>

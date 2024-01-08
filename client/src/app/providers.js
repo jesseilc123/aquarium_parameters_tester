@@ -1,12 +1,26 @@
 "use client";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Navbar from "./components/Navbar";
-import * as React from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 export default function Providers( { children }){
-    const [darkMode, setDarkMode] = React.useState(true)
+    const [darkMode, setDarkMode] = useState(false)
 
-    const theme = React.useMemo(
+    let mode = "light"
+    
+    if (typeof localStorage !== "undefined") {
+        mode = localStorage.getItem("theme")
+    }
+
+    useEffect(() => {
+        if (mode === "dark") {
+            setDarkMode(true)
+        } else {
+            setDarkMode(false)
+        }
+    }, []);
+
+    const theme = useMemo(
         () => createTheme({
             palette: {
                 mode: darkMode ? 'dark' : 'light',

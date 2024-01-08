@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { Avatar } from "@mui/material";
 import { usePathname } from 'next/navigation'
 
-export default function Navbar( { darkMode, setDarkMode }) {
+export default function Navbar( { darkMode, setDarkMode } ) {
     const pathname = usePathname()
 
     return (

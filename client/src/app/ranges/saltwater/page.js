@@ -1,15 +1,17 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import SaltwaterRanges from './SaltwaterRanges';
-import { Typography, Button } from '@mui/material';
+import { Typography, Button, Card } from '@mui/material';
 import { useRouter } from 'next/navigation'
 
 export default function Saltwater() {
     const router = useRouter()
 
     return (
-        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px]">
-            <Typography variant='h2' className='mb-6'>Saltwater Aquariums</Typography>
+        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px] mb-20">
+            <Card elevation={8} className='mb-6 px-2 w-[345px] lg:w-fit' >
+                <Typography variant='h2' align="center">Saltwater Aquariums</Typography>
+            </Card>
             <SaltwaterRanges />
             <div className='flex mt-4'>
                 <Button 
