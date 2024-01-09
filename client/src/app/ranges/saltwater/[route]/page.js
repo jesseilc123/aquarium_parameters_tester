@@ -26,7 +26,7 @@ export default function RangeDetails({ params }) {
 
     return (
         <div className='flex items-center h-full w-full flex-col mt-[80px] mb-20'>
-            <div className='flex w-full px-4 items-center flex-col gap-2'>
+            <div className='flex w-full px-2 items-center flex-col gap-2'>
                 <SaltwaterRoute route={route} ranges={ranges} title={title}/>
                 <Button 
                     onClick={handleClick}

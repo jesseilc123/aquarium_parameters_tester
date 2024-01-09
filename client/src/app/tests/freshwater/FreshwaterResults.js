@@ -103,49 +103,51 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     </MenuItem>
                 </Menu>
             </div>
-            <TableContainer component={Paper}>
-                <Table aria-label="simple table" sx={{border: 2}}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Test</TableCell>
-                            <TableCell align="right">Input</TableCell>
-                            <TableCell align="right">Range</TableCell>
-                            <TableCell align="right">Result</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {data.map((item, index) => {
-                            if(item.input !== null && item.input !== "NaN" && item.input !== ""){
-                                return(
-                                    <TableRow
-                                        key={item.name}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <TableCell component="th" scope="row">
-                                            {item.name}{item.unit != "" ? ` (${item.unit})` : ""}
-                                        </TableCell>
-                                        <TableCell align="right">{item.input}</TableCell>
-                                        <TableCell align="right">
-                                            {aquariumType[index].min - aquariumType[index].max !== 0 ? 
-                                                (`${aquariumType[index].min} - ${aquariumType[index].max}`)
-                                             : (aquariumType[index].min)
-                                            }
-                                        </TableCell>
-                                        <TableCell align="right">{handleResult(item.input, index)}
-                                        </TableCell>
-                                    </TableRow> 
-                                )
-                            } else {count+=1}      
-                        })}
-                        {count > 6 ? (
+            <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
+                <TableContainer >
+                    <Table stickyHeader aria-label="simple table">
+                        <TableHead>
                             <TableRow>
-                                <TableCell>No Data</TableCell>
+                                <TableCell>Test</TableCell>
+                                <TableCell align="right">Input</TableCell>
+                                <TableCell align="right">Range</TableCell>
+                                <TableCell align="right">Result</TableCell>
                             </TableRow>
-                            ) : (null)
-                        }
-                    </TableBody>
-                </Table>
-            </TableContainer>
+                        </TableHead>
+                        <TableBody>
+                            {data.map((item, index) => {
+                                if(item.input !== null && item.input !== "NaN" && item.input !== ""){
+                                    return(
+                                        <TableRow
+                                            key={item.name}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                        >
+                                            <TableCell component="th" scope="row">
+                                                {item.name}{item.unit != "" ? ` (${item.unit})` : ""}
+                                            </TableCell>
+                                            <TableCell align="right">{item.input}</TableCell>
+                                            <TableCell align="right">
+                                                {aquariumType[index].min - aquariumType[index].max !== 0 ? 
+                                                    (`${aquariumType[index].min} - ${aquariumType[index].max}`)
+                                                : (aquariumType[index].min)
+                                                }
+                                            </TableCell>
+                                            <TableCell align="right">{handleResult(item.input, index)}
+                                            </TableCell>
+                                        </TableRow> 
+                                    )
+                                } else {count+=1}      
+                            })}
+                            {count > 6 ? (
+                                <TableRow>
+                                    <TableCell>No Data</TableCell>
+                                </TableRow>
+                                ) : (null)
+                            }
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
             <div className='flex items-center justify-center mb-8'>
                 <Button 
                     type="button" 

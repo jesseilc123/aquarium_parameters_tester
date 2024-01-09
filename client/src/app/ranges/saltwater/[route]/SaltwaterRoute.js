@@ -13,9 +13,9 @@ export default function SaltwaterRoute({ route, ranges, title }) {
     return (
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col'>
             <Typography variant='h5' className='mb-2'>{title}</Typography>
-            <div className='flex w-full px-4 items-center justify-center'>
+            <div className='flex w-full items-center justify-center'>
                 {route !==  "salt_all" ? (
-                    <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 - border-black'>
+                    <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
                         <TableContainer sx={{ maxHeight: 700 }}>
                             <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
@@ -46,7 +46,7 @@ export default function SaltwaterRoute({ route, ranges, title }) {
                         </TableContainer>
                     </Paper>
                 ) : (
-                    <Paper sx={{ display: "flex", width: "100%", maxWidth: 700, overflow: 'hidden', height: "100%" }} className='border-2 - border-black'>
+                    <Paper sx={{ display: "flex", width: "100%", maxWidth: 700, overflow: 'hidden', height: "100%" }} className='border-2 border-black'>
                         <TableContainer sx={{ maxHeight: "screen" }}>
                             <Table stickyHeader aria-label="sticky table">
                                 <TableHead>

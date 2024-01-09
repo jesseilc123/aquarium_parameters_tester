@@ -13,15 +13,15 @@ export default function FreshwaterRoute({ route, ranges, title }) {
     return (
         <div className='flex h-full w-full items-center justify-center sm:justify-center flex-col'>
             <Typography variant='h5' className='mb-2'>{title}</Typography>
-            <div className='flex w-full px-4 items-center justify-center'>
+            <div className='flex w-full items-center justify-center'>
                 {route !== "fresh_all" ? (
                     <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 - border-black'>
                         <TableContainer sx={{ maxHeight: 440}}>
                             <Table stickyHeader aria-label="sticky table">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell sx={{ fontWeight: "bold"}}>Parameter</TableCell>
-                                        <TableCell align="right" sx={{ fontWeight: "bold"}}>Ranges</TableCell>
+                                        <TableCell sx={{ fontWeight: "bold" }}>Parameter</TableCell>
+                                        <TableCell align="right" sx={{ fontWeight: "bold" }}>Ranges</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>

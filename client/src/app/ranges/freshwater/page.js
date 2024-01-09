@@ -9,9 +9,7 @@ export default function Freshwater() {
     
     return (
         <div className="flex h-full w-full items-center justify-center flex-col mt-[80px] mb-20">
-            <Card elevation={8} className='mb-6 px-2'>
-                <Typography variant='h2' align="center">Freshwater Aquariums</Typography>
-            </Card>
+            <Typography variant='h2' align="center" className='mb-4'>Freshwater Aquariums</Typography>
             <FreshwaterRanges />
             <div className='flex mt-4'>
                 <Button 

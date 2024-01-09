@@ -21,7 +21,7 @@ export default function FreshwaterRangeDetails({ params }) {
     }, [setRanges, route])
     return (
         <div className='flex items-center h-full w-full flex-col mt-[80px] mb-11'>
-            <div className='flex px-4 w-full flex-col gap-2 justify-center items-center'>
+            <div className='flex px-2 w-full flex-col gap-2 justify-center items-center'>
                 <FreshwaterRoute route={route} ranges={ranges} title={title} />
                 <div >
                     <Button 

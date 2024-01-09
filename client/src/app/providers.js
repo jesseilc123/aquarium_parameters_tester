@@ -18,7 +18,7 @@ export default function Providers( { children }){
         } else {
             setDarkMode(false)
         }
-    }, []);
+    }, [setDarkMode]);
 
     const theme = useMemo(
         () => createTheme({

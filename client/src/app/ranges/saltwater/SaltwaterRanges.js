@@ -14,11 +14,11 @@ export default function SaltwaterRanges() {
         <div className='flex flex-wrap gap-3 px-4 w-full items-center justify-center max-w-[80%]'>
             {reefs.map((item) => (
                 <Link key={item.route} href={`/ranges/saltwater/${item.route}`}>
-                    <Card sx={{ width: 345, height: 300 }} elevation={4}>
+                    <Card sx={{ width: 400, height: 345 }} elevation={4}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                sx={{ height: 200 }}
+                                sx={{ height: 245 }}
                                 src={`${item.image}`}
                                 alt={item.name}
                             />

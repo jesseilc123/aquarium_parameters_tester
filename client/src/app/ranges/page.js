@@ -10,16 +10,14 @@ import Link from 'next/link';
 export default function Ranges() {
     return (
         <main className='flex flex-col items-center justify-center mt-[80px] mb-5'>
-            <Card elevation={8} className='mb-4 px-2'>
-                <Typography variant='h2' className='px-2'>Aquariums</Typography>
-            </Card>
+            <Typography variant='h2' className='mb-4'>Aquariums</Typography>
             <div className='flex justify-center items-center flex-row h-full w-full flex-wrap gap-4 px-2'>
                 <Link href={"/ranges/freshwater"}>
-                    <Card sx={{maxWidth: 750, maxHeight: 750}} elevation={4} >
+                    <Card sx={{ maxWidth: 750, maxHeight: 750 }} elevation={4} >
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                sx={{ height: 500, width: 600}}
+                                sx={{ height: {sm: 300, md: 500}, width: {sm: 400, md: 600} }}
                                 image="/freshwater_card.jpg"
                                 alt="freshwater aquariums"
                             />
@@ -32,11 +30,11 @@ export default function Ranges() {
                     </Card>
                 </Link>
                 <Link href={"/ranges/saltwater"} >
-                    <Card sx={{maxWidth: 750, maxHeight: 750}} elevation={4}>
+                    <Card sx={{ maxWidth: 750, maxHeight: 750 }} elevation={4}>
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                sx={{ height: 500, width: 600}}
+                                sx={{ height: {sm: 300, md: 500}, width: {sm: 400, md: 600} }}
                                 image="/saltwater_card.jpg"
                                 alt="saltwater aquariums"
                             />
