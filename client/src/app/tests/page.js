@@ -10,7 +10,7 @@ export default function Tests() {
     
     return (
         <main className='flex w-full min-h-screen h-full flex-col'>
-            <div className="flex h-full w-full items-center sm:justify-center flex-col mt-[64px] mb-20">
+            <div className="flex h-full w-full items-center sm:justify-center flex-col mt-[64px]">
                 <ToggleForm active={active} setActive={setActive}/>
                 {active === "freshwater" ? (<FreshwaterPage />) : (<SaltwaterPage  />)}
             </div>

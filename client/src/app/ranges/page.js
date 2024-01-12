@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Ranges() {
     return (
-        <main className='flex flex-col items-center justify-center mt-[80px] mb-5'>
+        <main className='flex flex-col items-center justify-center mt-[80px]'>
             <Typography variant='h2' className='mb-4'>Aquariums</Typography>
             <div className='flex justify-center items-center flex-row h-full w-full flex-wrap gap-4 px-2'>
                 <Link href={"/ranges/freshwater"}>

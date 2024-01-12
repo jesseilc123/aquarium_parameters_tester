@@ -8,7 +8,7 @@ export default function Saltwater() {
     const router = useRouter()
 
     return (
-        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px] mb-20">
+        <div className="flex h-full w-full items-center justify-center flex-col mt-[80px]">
             <Typography variant='h2' align="center" className='mb-4 w-[345px] lg:w-fit'>Saltwater Aquariums</Typography>
             <SaltwaterRanges />
             <div className='flex mt-4'>

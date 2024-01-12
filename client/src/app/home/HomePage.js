@@ -6,7 +6,7 @@ import Welcome from "./components/Welcome";
 export default function HomePage() {
     return (
         <main className='flex min-h-screen h-full flex-col'>
-            <div className="flex h-full w-full items-center justify-center flex-col sm:mt-[80px] mt-[64px] mb-5">
+            <div className="flex h-full w-full items-center justify-center flex-col sm:mt-[80px] mt-[64px]">
                 <Welcome />
                 <TheWhy />
                 <TheHow />

@@ -118,6 +118,8 @@ const reefs = [
     {route: "salt_reef", name: "Reef", image: "/reef.jpg", description: "", parameters: reefParameters}, 
 ]
 
+const navItems = [{name: 'Home', link: "/"}, {name: 'Tests', link: "/tests"}, {name: 'Ranges', link: "/ranges"}];
+
 export { 
     fowlrParameters, 
     reefParameters, 
@@ -128,4 +130,5 @@ export {
     pondParameters,
     communities,
     reefs,
+    navItems,
 };

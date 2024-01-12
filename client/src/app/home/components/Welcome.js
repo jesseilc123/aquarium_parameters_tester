@@ -34,9 +34,7 @@ export default function Welcome() {
                 <Divider />
                 <div className='flex justify-center flex-wrap items-center gap-4 sm:gap-20 mt-4'>
                     <div className='flex flex-row items-center justify-center gap-2'>
-                        <Avatar sx={{height: 100, width: 100}} src="/profilepic.jpg">
-                            J
-                        </Avatar>
+                        <Avatar sx={{height: 100, width: 100}} src="/profilepic.jpg" />
                         <div>
                             <Typography fontWeight={"bold"}>Contact Info</Typography>
                             <Typography >Jesse Ilc</Typography>
