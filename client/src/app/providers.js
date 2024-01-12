@@ -28,7 +28,7 @@ export default function Providers( { children }){
         }),
         [darkMode],
     );
-
+    
     return (
         <ThemeProvider theme={theme}>
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
