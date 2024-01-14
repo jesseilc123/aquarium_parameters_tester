@@ -63,6 +63,7 @@ export default function SaltwaterRoute({ route, ranges, title }) {
                                     {ranges.map((row) => (
                                         <TableRow 
                                             key={row.parameter}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                         >
                                             <TableCell >{row.parameter}</TableCell>
                                             <TableCell align="right">{row.reef}</TableCell>

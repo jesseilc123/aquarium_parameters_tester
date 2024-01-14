@@ -103,7 +103,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     </MenuItem>
                 </Menu>
             </div>
-            <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
+            <Paper sx={{ width: 1, maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
                 <TableContainer >
                     <Table stickyHeader aria-label="simple table">
                         <TableHead>
@@ -132,16 +132,15 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                                                 : (aquariumType[index].min)
                                                 }
                                             </TableCell>
-                                            <TableCell align="right">{handleResult(item.input, index)}
-                                            </TableCell>
+                                            <TableCell align="right">{handleResult(item.input, index)}</TableCell>
                                         </TableRow> 
                                     )
                                 } else {count+=1}      
                             })}
                             {count > 6 ? (
-                                <TableRow>
-                                    <TableCell>No Data</TableCell>
-                                </TableRow>
+                                    <TableRow>
+                                        <TableCell sx={{border: "none"}}>No Data</TableCell>
+                                    </TableRow>
                                 ) : (null)
                             }
                         </TableBody>

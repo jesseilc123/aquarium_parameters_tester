@@ -9,7 +9,7 @@ export default function SaltwaterPage() {
     const [data, setData] = React.useState()
 
     return (
-        <div>
+        <div className='mb-10'>
             {!displayResults ? 
                 (
                     <SaltwaterForm setDisplayResults={setDisplayResults} setData={setData}/>

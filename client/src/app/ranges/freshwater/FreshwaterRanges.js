@@ -11,14 +11,14 @@ import Link from 'next/link'
 
 export default function FreshwaterRanges() {
     return(
-        <div className='flex flex-wrap gap-3 px-4 w-full items-center justify-center max-w-[80%]'>
+        <div className='flex flex-wrap gap-1 w-full items-center justify-center sm:max-w-[80%]'>
             {communities.map((item) => (
                 <Link key={item.route} href={`/ranges/freshwater/${item.route}`}>
-                    <Card sx={{ width: 400, height: 345 }} elevation={4}>
+                    <Card sx={{ width: {sm: 400}, height: 345, margin: 1 }} elevation={4} >
                         <CardActionArea>
                             <CardMedia
                                 component="img"
-                                sx={{ height: 245 }}
+                                sx={{ height: 245, width: 400 }}
                                 src={`${item.image}`}
                                 alt={item.name}
                             />

@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function Ranges() {
     return (
-        <main className='flex flex-col items-center justify-center mt-[80px]'>
+        <main className='flex flex-col items-center justify-center mt-[80px] mb-4'>
             <Typography variant='h2' className='mb-4'>Aquariums</Typography>
             <div className='flex justify-center items-center flex-row h-full w-full flex-wrap gap-4 px-2'>
                 <Link href={"/ranges/freshwater"}>
@@ -45,7 +45,6 @@ export default function Ranges() {
                             </CardContent>
                         </CardActionArea>
                     </Card>
-                    {/* <Image src={"/saltwater_card.jpg"} width={500} height={500} alt="Saltwater card"objectFit='contain'/> */}
                 </Link>
             </div>
         </main>

@@ -32,7 +32,7 @@ export default function Providers( { children }){
     return (
         <ThemeProvider theme={theme}>
             <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
-            <div className='mb-20'>
+            <div>
                 {children}
             </div>
         </ThemeProvider>

@@ -1,29 +1,21 @@
 "use client"; // This is a client component
 import React, { useState } from "react"
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import ThemeToggle from './ThemeToggle';
 import Link from 'next/link'
-import { Avatar } from "@mui/material";
+import { Avatar, Typography, Toolbar, CssBaseline, Box, AppBar, useScrollTrigger, Slide, Drawer, Divider, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { usePathname } from 'next/navigation'
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Slide from '@mui/material/Slide';
-import Drawer from '@mui/material/Drawer';
-import Divider from "@mui/material/Divider";
 import MenuIcon from '@mui/icons-material/Menu'
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import { navItems } from "../constants";
 
 export default function Navbar( { darkMode, setDarkMode } ) {
     const pathname = usePathname()
     const [mobileOpen, setMobileOpen] = useState(false);
+    
+    let win = 0
+
+    if (typeof window != "undefined"){
+        win = window
+    }
 
     const trigger = useScrollTrigger({
         target: (typeof window !== "undefined") ? window : undefined,
@@ -36,7 +28,7 @@ export default function Navbar( { darkMode, setDarkMode } ) {
     return (
         <Box> 
             <CssBaseline />
-            <Slide appear={false} direction="down" in={ window.innerWidth > 697 ? true : !trigger} sx={{display: {sm: "absolute"}}}>
+            <Slide appear={false} direction="down" in={ win.innerWidth > 697 ? true : !trigger} sx={{display: {sm: "absolute"}}}>
                 <AppBar 
                     component="nav" 
                     id="navbar" 
@@ -67,14 +59,22 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                             <div className='md:flex flex-row items-center gap-2 hidden'>
                                 {navItems.map((item) => (
                                     <Link key={item.link} href={item.link}>
-                                        <button
-                                            value={item.name}
-                                            className={`dark:text-blue-400 hover:text-grey-300 ${pathname === item.link ? "text-grey-300 font-bold" : "" }`}
-                                        >
-                                            {item.name}
-                                        </button>
+                                        {item.link === "/" ? (
+                                            <button
+                                                value={item.name}
+                                                className={`dark:text-blue-400 hover:text-grey-300 ${pathname === "/" ? "text-grey-300 font-bold" : "" }`}
+                                            >
+                                                {item.name}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                value={item.name}
+                                                className={`dark:text-blue-400 hover:text-grey-300 ${pathname.includes(item.link) ? "text-grey-300 font-bold" : "" }`}
+                                            >
+                                                {item.name}
+                                            </button>
+                                        )}
                                     </Link>
-
                                 ))}
                             </div>
                         </div>
@@ -107,7 +107,11 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                                 <Link key={item.name} href={item.link}>
                                     <ListItem  disablePadding>
                                         <ListItemButton sx={{ textAlign: 'left' }}>
-                                            <ListItemText primary={item.name} />
+                                            {item.link === "/" ? (
+                                                <Typography className={`${pathname === "/" ? "text-blue-400 font-bold" : "" }`}>{item.name}</Typography>
+                                            ) : (
+                                                <Typography className={`${pathname.includes(item.link) ? "text-blue-400 font-bold" : "" }`}>{item.name}</Typography>
+                                            )}
                                         </ListItemButton>
                                     </ListItem>
                                 </Link>

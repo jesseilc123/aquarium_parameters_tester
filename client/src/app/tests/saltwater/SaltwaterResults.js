@@ -116,9 +116,9 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
                                 } else {count+=1}      
                             })}
                             {count > 11 ? (
-                                <TableRow>
-                                    <TableCell>No Data</TableCell>
-                                </TableRow>
+                                    <TableRow >
+                                        <TableCell sx={{ border: "none" }} >No Data</TableCell>
+                                    </TableRow>
                                 ) : (null)
                             }
                         </TableBody>
