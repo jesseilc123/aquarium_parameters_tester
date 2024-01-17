@@ -1,21 +1,36 @@
 "use client"; // This is a client component
 import React, { useState } from "react"
 import ThemeToggle from './ThemeToggle';
-import Link from 'next/link'
-import { Avatar, Typography, Toolbar, CssBaseline, Box, AppBar, useScrollTrigger, Slide, Drawer, Divider, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { usePathname } from 'next/navigation'
+import { 
+    Avatar, 
+    Typography, 
+    Toolbar, 
+    CssBaseline, 
+    Box, 
+    AppBar, 
+    useScrollTrigger, 
+    Slide, 
+    Drawer, 
+    Divider, 
+    IconButton, 
+    List, 
+    ListItem, 
+    ListItemButton, 
+} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { navItems } from "../constants";
 
 export default function Navbar( { darkMode, setDarkMode } ) {
-    const pathname = usePathname()
+    const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
     
-    let win = 0
+    let win = 0;
 
     if (typeof window != "undefined"){
         win = window
-    }
+    };
 
     const trigger = useScrollTrigger({
         target: (typeof window !== "undefined") ? window : undefined,
@@ -28,7 +43,7 @@ export default function Navbar( { darkMode, setDarkMode } ) {
     return (
         <Box> 
             <CssBaseline />
-            <Slide appear={false} direction="down" in={ win.innerWidth > 697 ? true : !trigger} sx={{display: {sm: "absolute"}}}>
+            <Slide appear={false} direction="down" in={ win.innerWidth > 697 ? true : !trigger} sx={{ display: {sm: "absolute" }}}>
                 <AppBar 
                     component="nav" 
                     id="navbar" 
@@ -122,4 +137,4 @@ export default function Navbar( { darkMode, setDarkMode } ) {
             </nav>
         </Box>
     );
-}
+};

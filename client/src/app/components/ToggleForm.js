@@ -6,8 +6,9 @@ const ToggleForm = ({ active, setActive }) => {
     
     const handleClick = (event) => {
         setActive(event.target.value);
-    }
-    return(
+    };
+
+    return (
         <ToggleButtonGroup 
             color="primary"
             className="m-4"
@@ -23,13 +24,12 @@ const ToggleForm = ({ active, setActive }) => {
             </ToggleButton>
             <ToggleButton 
                 value="saltwater" 
-                sx={{fontWeight: 600, border: 1, font: "#000000"}} 
+                sx={{ fontWeight: 600, border: 1, font: "#000000" }} 
             >
                 Salt Water
             </ToggleButton>
         </ToggleButtonGroup>
-    )
-    
-}
+    );
+};
 
 export default ToggleForm;

@@ -1,26 +1,23 @@
 "use client"; // This is a client component
 
-import * as React from 'react';
-import { TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import { PatternFormat } from 'react-number-format';
-import Button from '@mui/material/Button';
 
 export default function SaltwaterForm( { setDisplayResults, setData } ) {
-    const [salinity, setSalinity] = React.useState(null);
-    const [temperature, setTemperature] = React.useState(null);
-    const [pH, setPH] = React.useState(null);
-    const [alkalinity, setAlkalinity] = React.useState(null);
-    const [ammonia, setAmmonia] = React.useState(null);
-    const [nitrite, setNitrite] = React.useState(null);
-    const [nitrate, setNitrate] = React.useState(null);
-    const [phosphate, setPhosphate] = React.useState(null);
-
-    const [calcium, setCalcium] = React.useState(null);
-    const [magnesium, setMagnesium] = React.useState(null);
-    const [iodine, setIodine] = React.useState(null);
-    const [strontium, setStrontium] = React.useState(null);
-
+    const [salinity, setSalinity] = useState(null);
+    const [temperature, setTemperature] = useState(null);
+    const [pH, setPH] = useState(null);
+    const [alkalinity, setAlkalinity] = useState(null);
+    const [ammonia, setAmmonia] = useState(null);
+    const [nitrite, setNitrite] = useState(null);
+    const [nitrate, setNitrate] = useState(null);
+    const [phosphate, setPhosphate] = useState(null);
+    const [calcium, setCalcium] = useState(null);
+    const [magnesium, setMagnesium] = useState(null);
+    const [iodine, setIodine] = useState(null);
+    const [strontium, setStrontium] = useState(null);
 
     const handleSaltwaterFormSubmit = (event) => {
         event.preventDefault()
@@ -39,9 +36,9 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                 {name:"Iodine", input: iodine, unit: "ppm"},
                 {name:"Strontium", input: strontium,unit: "ppm"},
             ]
-        setData(data)
-        setDisplayResults(true)
-        window.scrollTo(0, 0)
+        setData(data);
+        setDisplayResults(true);
+        window.scrollTo(0, 0);
     };
     
     return (
@@ -73,7 +70,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     value={temperature}
                     label="Temperature"
                     placeholder='ex: 78'
-                    sx={{ display: "flex" , width: 1}}
+                    sx={{ display: "flex" , width: 1 }}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">°F</InputAdornment>,
                     }}
@@ -83,7 +80,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                             setTemperature(null)
                         } else {
                             setTemperature(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="##"
                 />
@@ -112,9 +109,9 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     onBlur={(e) => {
                         if (e.target.value === "") {
                             setAlkalinity(null)
-                        } else{
+                        } else {
                             setAlkalinity(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="##"
                 />
@@ -138,7 +135,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                     value={nitrite}
                     label="Nitrite"
                     placeholder='ex: 0.25'
-                    sx={{ display: "flex", width: 1}}
+                    sx={{ display: "flex", width: 1 }}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">ppm(mg/L)</InputAdornment>,
                     }}
@@ -163,7 +160,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                             setNitrate(null)
                         } else {
                             setNitrate(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="###"
                 />
@@ -197,7 +194,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                             setCalcium(null)
                         } else {
                             setCalcium(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="###"
                 />
@@ -217,7 +214,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                             setMagnesium(null)
                         } else {
                             setMagnesium(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="####"
                 />
@@ -251,7 +248,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                             setStrontium(null)
                         } else {
                             setStrontium(parseInt(e.target.value))
-                        }
+                        };
                     }}
                     format="##"
                 />
@@ -260,7 +257,7 @@ export default function SaltwaterForm( { setDisplayResults, setData } ) {
                 type="submit" 
                 className="mt-4 text-black dark:text-blue-400 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900" 
                 variant="contained" 
-                sx={{border: 2}}
+                sx={{ border: 2 }}
             >
                 Submit
             </Button>

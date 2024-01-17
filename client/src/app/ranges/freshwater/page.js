@@ -22,5 +22,5 @@ export default function Freshwater() {
                 </Button>
             </div>
         </div>
-    )
-}
+    );
+};

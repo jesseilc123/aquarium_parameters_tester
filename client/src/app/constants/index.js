@@ -11,7 +11,7 @@ const fowlrParameters = [
     {parameter:"Magnesium", unit: "(ppm)", min: 1150,  max: 1350},
     {parameter:"Iodine", unit: "(ppm)", min: 0.04,  max: parseFloat(0.10).toFixed(2)},
     {parameter:"Strontium", unit: "(ppm)", min: 8,  max: 14},
-]
+];
 
 const reefParameters = [
     {parameter:"Salinity", unit: "(SG)", min: parseFloat(1.023).toFixed(3), max: 1.025},
@@ -26,7 +26,7 @@ const reefParameters = [
     {parameter:"Magnesium", unit: "(ppm)", min: 1250,  max: 1350},
     {parameter:"Iodine", unit: "(ppm)", min: 0.06,  max: parseFloat(0.10).toFixed(2)},
     {parameter:"Strontium", unit: "(ppm)", min: 8,  max: 14},
-]
+];
 
 const communityParameters = [
     {parameter:"Temperature", unit: "(°F)", min: 72, max: 82},
@@ -36,7 +36,7 @@ const communityParameters = [
     {parameter:"PH", unit: "", min: 6.5, max: 7.5},
     {parameter:"Alkalinity", unit: "(KH)", min: 4,  max: 8},
     {parameter:"General Hardness", unit: "(GH)", min: 4,  max: 12},
-]
+];
 
 const cichlidParameters = [
     {parameter:"Temperature", unit: "(°F)", min: 72, max: 82},
@@ -46,7 +46,7 @@ const cichlidParameters = [
     {parameter:"PH", unit: "", min: 7.8, max: 8.5},
     {parameter:"Alkalinity", unit: "(KH)", min: 10,  max: 18},
     {parameter:"General Hardness", unit: "(GH)", min: 12,  max: 20},
-]
+];
 
 const plantsDiscusParameters = [
     {parameter:"Temperature", unit: "(°F)", min: 76, max: 86},
@@ -56,7 +56,7 @@ const plantsDiscusParameters = [
     {parameter:"PH", unit: "", min: 6.0, max: 7.5},
     {parameter:"Alkalinity", unit: "(KH)", min: 3,  max: 8},
     {parameter:"General Hardness", unit: "(GH)", min: 3,  max: 8},
-]
+];
 
 const brackishParameters = [
     {parameter:"Temperature", unit: "(°F)", min: 72, max: 82},
@@ -66,7 +66,7 @@ const brackishParameters = [
     {parameter:"PH", unit: "", min: 7.5, max: 8.4},
     {parameter:"Alkalinity", unit: "(KH)", min: 10,  max: 18},
     {parameter:"General Hardness", unit: "(GH)", min: 12,  max: 20},
-]
+];
 
 const pondParameters = [
     {parameter:"Temperature", unit: "(°F)", min: 33, max: 86},
@@ -76,7 +76,7 @@ const pondParameters = [
     {parameter:"PH", unit: "", min: 6.5, max: 7.5},
     {parameter:"Alkalinity", unit: "(KH)", min: 4,  max: 8},
     {parameter:"General Hardness", unit: "(GH)", min: 4,  max: 12},
-]
+];
 
 const saltwaterParametersAll = [
     {parameter: "Salinity (SG)", reef: "1.023 - 1.025", fowlr: "1.020 - 1.025", ocean: "1.025"},
@@ -91,7 +91,7 @@ const saltwaterParametersAll = [
     {parameter : "Magnesium (ppm)", reef: "1250 - 1350", fowlr: "1150 - 1350", ocean: "1300"},
     {parameter : "Iodine (ppm)", reef: "0.06 - 0.10", fowlr: "0.04 - 0.10", ocean: "0.06"},
     {parameter : "Strontium (ppm)", reef: "8 - 14", fowlr: "4 - 10", ocean: "8 - 10"},
-]
+];
 
 const freshwaterParametersAll = [
     {parameter: "Temperature (°F)", community: "72 - 82", cichlid: "72 - 82", plantsDiscus: "76 - 86", brackish: "72 - 82", pond: "33 - 86"},
@@ -101,7 +101,7 @@ const freshwaterParametersAll = [
     {parameter: "pH", community: "6.5 - 7.5", cichlid: "7.8 - 8.5", plantsDiscus: "6.0 - 7.5", brackish: "7.5 - 8.4", pond: "6.5 - 7.5"},
     {parameter: "Alkalinity (KH)", community: "4 - 8", cichlid: "10 - 18", plantsDiscus: "3 - 8", brackish: "10 - 18", pond: "4 - 8"},
     {parameter: "General Hardness (GH)", community: "4 - 12", cichlid: "12 - 20", plantsDiscus: "3 - 8", brackish: "12 - 20", pond: "4 - 12"},
-]
+];
 
 const communities = [
     {route: "fresh_all", name: "All", image: "/all.jpg", description: "", parameters: freshwaterParametersAll},
@@ -110,13 +110,13 @@ const communities = [
     {route: "fresh_plants_discus",name: "Freshwater Plants & Discus", image: "/discus.jpg", description: "", parameters: plantsDiscusParameters},
     {route: "fresh_brackish", name: "Brackish", image: "/brackish.jpg", description: "", parameters: brackishParameters},
     {route: "fresh_pond", name: "Pond", image: "/pond.jpg", description: "", parameters: pondParameters},  
-]
+];
 
 const reefs = [
     {route: "salt_all", name: "All", image: "/reef_all.jpg", description: "", parameters: saltwaterParametersAll},
     {route: "salt_fowlr", name: "Fish only with Live Rock", image: "/fowlr.jpg", description: "", parameters: fowlrParameters},
     {route: "salt_reef", name: "Reef", image: "/reef.jpg", description: "", parameters: reefParameters}, 
-]
+];
 
 const navItems = [{name: 'Home', link: "/"}, {name: 'Tests', link: "/tests"}, {name: 'Ranges', link: "/ranges"}];
 

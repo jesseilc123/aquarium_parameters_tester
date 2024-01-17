@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ToggleForm from "../components/ToggleForm"
 import SaltwaterPage from "./saltwater/SaltwaterPage"
 import FreshwaterPage from "./freshwater/FreshwaterPage";
 
 export default function Tests() {
-    const [active, setActive] = useState("freshwater")
+    const [active, setActive] = useState("freshwater");
     
     return (
         <main className='flex w-full h-full flex-col'>

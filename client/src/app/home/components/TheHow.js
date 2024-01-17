@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export default function TheHow() {
     return (
-        <Card sx={{maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1 }} elevation={4}>
+        <Card sx={{ maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1 }} elevation={4}>
             <CardContent>
                 <Typography variant='h4' gutterBottom>How to test your water parameters</Typography>
                 <Divider />

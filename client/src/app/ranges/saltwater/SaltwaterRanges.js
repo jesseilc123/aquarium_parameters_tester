@@ -1,16 +1,17 @@
 "use client";  // This is a client component
-import * as React from 'react';
-
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {CardActionArea } from '@mui/material';
+import React from 'react';
+import { 
+    CardActionArea, 
+    Typography, 
+    CardMedia, 
+    CardContent, 
+    Card,
+} from '@mui/material';
 import { reefs } from "../../constants/index"
 import Link from 'next/link'
 
 export default function SaltwaterRanges() {
-    return(
+    return (
         <div className='flex flex-wrap gap-1 w-full items-center justify-center sm:max-w-[80%]'>
             {reefs.map((item) => (
                 <Link key={item.route} href={`/ranges/saltwater/${item.route}`}>
@@ -22,11 +23,11 @@ export default function SaltwaterRanges() {
                                 src={`${item.image}`}
                                 alt={item.name}
                             />
-                            <CardContent sx={{display: "flex", justifyContent: "center", alignItems: "center",flexDirection: "column"}}>
+                            <CardContent sx={{ display: "flex", justifyContent: "center", alignItems: "center",flexDirection: "column" }}>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {item.name}
                                 </Typography>
-                                <Typography size="small" color="primary" sx={{marginBottom: "4px"}}>
+                                <Typography size="small" color="primary" sx={{ marginBottom: "4px" }}>
                                     View ranges
                                 </Typography>
                             </CardContent>
@@ -35,5 +36,5 @@ export default function SaltwaterRanges() {
                 </Link>
             ))}
         </div>
-    )
-}
+    );
+};

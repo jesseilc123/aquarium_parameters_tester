@@ -6,7 +6,7 @@ import { Divider } from '@mui/material';
 
 export default function TheWhy() {
     return (
-        <Card sx={{maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1}} elevation={4}>
+        <Card sx={{ maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1 }} elevation={4}>
             <CardContent>
                 <Typography variant='h4' gutterBottom>Why should you test your water parameters?</Typography>
                 <Divider/>

@@ -1,36 +1,38 @@
 "use client";  // This is a client component
 
-import React from 'react'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import React, { useState } from 'react'
+import {
+    Table, 
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Button,
+    Menu,
+    MenuItem,
+} from '@mui/material'
 import { communityParameters, cichlidParameters,  plantsDiscusParameters, brackishParameters, pondParameters} from '../../constants/index'
 
 export default function FreshwaterResults( {data, setDisplayResults }){
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [name, setName] = React.useState("Freshwater Community");
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [name, setName] = useState("Freshwater Community");
+    const [aquariumType, setAquariumType] = useState(communityParameters);
 
-    let count = 0
-
-    const [aquariumType, setAquariumType] = React.useState(communityParameters)
+    let count = 0;
 
     function handleResult (input, index) {
         if (input < aquariumType[index].min) return (<p className='text-[#FF0000] font-semibold cursor-pointer'>LOW</p>)
         else if(input > aquariumType[index].max) return (<p className='text-[#FF0000] font-semibold'>HIGH</p>)
         else return (<p className='text-[#008000] font-semibold'>GOOD</p>)
-    }
+    };
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
     const handleClose = (event) => {
         if (event.target.value === "Freshwater Community"){
             setAquariumType(communityParameters)
@@ -50,6 +52,8 @@ export default function FreshwaterResults( {data, setDisplayResults }){
         }
         setAnchorEl(null);
     };
+
+    const menuItems = ["Freshwater Community", "African Cichlid", "Freshwater Plants & Discus", "Brackish", "Pond"];
 
     return (
         <div className='flex flex-col px-2 w-full sm:min-w-[440px]'>
@@ -76,31 +80,17 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     }}
                     className='flex items-center justify-center'
                 >
-                    <MenuItem>
-                        <button value="Freshwater Community" className="items-center justify-center" onClick={(event) => handleClose(event)}>
-                            Freshwater Community
-                        </button>
-                    </MenuItem>
-                    <MenuItem>
-                        <button value="African Cichlid" className="items-center justify-center" onClick={(event) => handleClose(event)}>
-                            African Cichlid
-                        </button>
-                    </MenuItem>   
-                    <MenuItem>
-                        <button value="Freshwater Plants & Discus" className="items-center justify-center" onClick={(event) => handleClose(event)}>
-                            Freshwater Plants & Discus
-                        </button>
-                    </MenuItem> 
-                    <MenuItem>
-                        <button value="Brackish" className="items-center justify-center" onClick={(event) => handleClose(event)}>
-                            Brackish
-                        </button>
-                    </MenuItem>
-                    <MenuItem>
-                        <button value="Pond" className="items-center justify-center" onClick={(event) => handleClose(event)}>
-                            Pond
-                        </button>
-                    </MenuItem>
+                    {menuItems.map((item) => (
+                        <MenuItem key={item}>
+                            <button
+                                value={item}
+                                className='items-center justify-center'
+                                onClick={(e) => handleClose(e)}
+                            >
+                                {item}
+                            </button>
+                        </MenuItem>
+                    ))}
                 </Menu>
             </div>
             <Paper sx={{ width: 1, maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
@@ -117,7 +107,7 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                         <TableBody>
                             {data.map((item, index) => {
                                 if(item.input !== null && item.input !== "NaN" && item.input !== ""){
-                                    return(
+                                    return (
                                         <TableRow
                                             key={item.name}
                                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -154,13 +144,13 @@ export default function FreshwaterResults( {data, setDisplayResults }){
                     variant="contained"
                     sx={{border: 2}}
                     onClick={() => {
-                        window.scrollTo(0, 0)
-                        setDisplayResults(false)
+                        window.scrollTo(0, 0);
+                        setDisplayResults(false);
                     }}
                 >
                     Back
                 </Button>
             </div>
         </div> 
-    )
-}
+    );
+};

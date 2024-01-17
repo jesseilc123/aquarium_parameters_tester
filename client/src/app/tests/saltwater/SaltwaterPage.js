@@ -1,6 +1,5 @@
 "use client"; // This is a client component
-
-import * as React from 'react';
+import React, { useState } from 'react';
 import SaltwaterForm from "./SaltwaterForm";
 import SaltwaterResults from './SaltwaterResults';
 
@@ -18,5 +17,5 @@ export default function SaltwaterPage() {
                 )
             }
         </div>
-    )
-}
+    );
+};

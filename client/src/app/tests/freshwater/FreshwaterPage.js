@@ -1,12 +1,12 @@
 "use client"; // This is a client component
 
-import * as React from 'react';
+import React, { useState } from 'react';
 import FreshwaterForm from "./FreshwaterForm";
 import FreshwaterResults from './FreshwaterResults';
 
 export default function FreshwaterPage() {
-    const [displayResults, setDisplayResults] = React.useState(false)
-    const [data, setData] = React.useState()
+    const [displayResults, setDisplayResults] = useState(false);
+    const [data, setData] = useState();
 
     return (
         <div>
@@ -18,5 +18,5 @@ export default function FreshwaterPage() {
                 )
             }
         </div>
-    )
-}
+    );
+};

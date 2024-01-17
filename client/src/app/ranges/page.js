@@ -1,10 +1,6 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import React from 'react';
+import { CardActionArea, Typography, CardMedia, CardContent, Card } from '@mui/material';
 import Link from 'next/link';
 
 export default function Ranges() {
@@ -49,4 +45,4 @@ export default function Ranges() {
             </div>
         </main>
     );
-}
+};

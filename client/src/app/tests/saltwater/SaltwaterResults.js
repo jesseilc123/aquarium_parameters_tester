@@ -1,26 +1,26 @@
 "use client";  // This is a client component
-
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import React, { useState } from 'react';
+import { 
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Button,
+    Menu,
+    MenuItem,
+} from '@mui/material'
 import { fowlrParameters, reefParameters } from '../../constants/index'
 
 
 export default function SaltwaterResults( {data, setDisplayResults }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [name, setName] = React.useState("Reef");
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [name, setName] = useState("Reef");
+    const [aquariumType, setAquariumType] = useState(reefParameters);
 
-    let count = 0
-
-    const [aquariumType, setAquariumType] = React.useState(reefParameters)
+    let count = 0;
 
     function handleResult (input, index) {
         if (input < aquariumType[index].min) return (<p className='text-[#FF0000] font-semibold cursor-pointer'>LOW</p>)
@@ -29,9 +29,11 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
     }
 
     const open = Boolean(anchorEl);
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
     const handleClose = (event) => {
         if (event.target.value === "Reef"){
             setAquariumType(reefParameters)
@@ -42,6 +44,8 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
         }
         setAnchorEl(null);
     };
+
+    const menuItems = ["Reef", "FOWLR"]
 
     return (
         <div className='flex flex-col px-2 w-full sm:min-w-[440px]'>
@@ -68,12 +72,17 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
                     }}
                     className='flex items-center justify-center'
                 >
-                    <MenuItem>
-                        <button value="Reef" className="items-center justify-center" onClick={(event) => handleClose(event)}>Reef</button>
-                    </MenuItem>
-                    <MenuItem>
-                        <button value="FOWLR" className="items-center justify-center" onClick={(event) => handleClose(event)}>FOWLR</button>
-                    </MenuItem>    
+                    {menuItems.map((item) => (
+                        <MenuItem key={item}>
+                            <button
+                                value={item}
+                                className='items-center justify-center'
+                                onClick={(e) => handleClose(e)}
+                            >
+                                {item}
+                            </button>
+                        </MenuItem>
+                    ))}
                 </Menu>
             </div>
             <Paper sx={{ width: "100%", maxWidth: 440, overflow: 'hidden' }} className='border-2 border-black'>
@@ -140,5 +149,5 @@ export default function SaltwaterResults( {data, setDisplayResults }) {
                 </Button>
             </div>
         </div> 
-    )
-}
+    );
+};

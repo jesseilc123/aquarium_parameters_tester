@@ -1,16 +1,11 @@
 "use client";  // This is a client component
-import React, {useEffect} from 'react';
-
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import React from 'react';
+import { CardActionArea, Typography, CardMedia, CardContent, Card } from '@mui/material';
 import { communities } from '../../constants';
 import Link from 'next/link'
 
 export default function FreshwaterRanges() {
-    return(
+    return (
         <div className='flex flex-wrap gap-1 w-full items-center justify-center sm:max-w-[80%]'>
             {communities.map((item) => (
                 <Link key={item.route} href={`/ranges/freshwater/${item.route}`}>

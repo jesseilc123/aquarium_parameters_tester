@@ -1,19 +1,18 @@
 "use client"; // This is a client component
 
-import * as React from 'react';
-import { TextField } from '@mui/material';
+import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/system';
 import { PatternFormat } from 'react-number-format';
-import Button from '@mui/material/Button';
 
 export default function FreshwaterForm( { setDisplayResults, setData } ) {
-    const [temperature, setTemperature] = React.useState(null)
-    const [ammonia, setAmmonia] = React.useState(null)
-    const [nitrite, setNitrite] = React.useState(null)
-    const [nitrate, setNitrate] = React.useState(null)
-    const [pH, setPH] = React.useState(null)
-    const [alkalinity, setAlkalinity] = React.useState(null)
-    const [gH, setGH] = React.useState(null)
+    const [temperature, setTemperature] = useState(null);
+    const [ammonia, setAmmonia] = useState(null);
+    const [nitrite, setNitrite] = useState(null);
+    const [nitrate, setNitrate] = useState(null);
+    const [pH, setPH] = useState(null);
+    const [alkalinity, setAlkalinity] = useState(null);
+    const [gH, setGH] = useState(null);
 
 
     const handleFreshwaterFormSubmit = (event) => {
@@ -27,10 +26,10 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
             {name: "Alkalinity", input: alkalinity, unit: "KH"},
             {name: "General Hardness", input: gH, unit: "GH"},
         ]
-        setData(data)
-        setDisplayResults(true)
-        window.scrollTo(0, 0)
-    }
+        setData(data);
+        setDisplayResults(true);
+        window.scrollTo(0, 0);
+    };
 
     return (
         <form 
@@ -57,7 +56,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         setTemperature(null)
                     } else {
                         setTemperature(parseInt(e.target.value))
-                    }
+                    };
                 }}
                 format="###"
             />
@@ -106,7 +105,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         setNitrate(null)
                     } else {
                         setNitrate(parseInt(e.target.value))
-                    }
+                    };
                 }}
                 format="###"
             />
@@ -137,7 +136,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         setAlkalinity(null)
                     } else{
                         setAlkalinity(parseInt(e.target.value))
-                    }
+                    };
                 }}
                 format="##"
             />
@@ -157,7 +156,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                         setGH(null)
                     } else{
                         setGH(parseInt(e.target.value))
-                    }
+                    };
                 }}
                 format="###"
             />
@@ -165,7 +164,7 @@ export default function FreshwaterForm( { setDisplayResults, setData } ) {
                 type="submit" 
                 className="text-black dark:text-blue-400 mt-2 font-medium dark:bg-grey-800 bg-grey-200 hover:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-grey-900"
                 variant="contained"
-                sx={{border: 2}}
+                sx={{ border: 2 }}
             >
                 Submit
             </Button>

@@ -8,14 +8,16 @@ import Avatar from '@mui/material/Avatar';
 
 export default function Welcome() {
     return (
-        <Card sx={{maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1 }} elevation={4}>
-            <CardContent sx={{display: "flex", flexDirection: "column"}}>
+        <Card sx={{ maxWidth: {xs: "full", sm:"75%", lg:"50%"}, margin: 1 }} elevation={4}>
+            <CardContent sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography variant='h4' gutterBottom >
                     Welcome to the Aquarium Parameter Checker!
                 </Typography>
                 <Divider />
                 <Typography className='mt-2 font-bold'>Introduction</Typography>
-                <Typography >The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks.</Typography> 
+                <Typography>
+                    The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks.
+                </Typography> 
                 <Typography className='mt-2 font-bold'>Site Features</Typography>
                 <Typography>
                     The 
@@ -32,7 +34,14 @@ export default function Welcome() {
                     >
                         &nbsp;Ranges&nbsp;
                     </Link>
-                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from <Link href="https://www.liveaquaria.com/article/89/?aid=89" className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'>LiveAquaria</Link>, so feel free to check them out if you have any questions on parameter ranges.
+                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from 
+                    <Link 
+                        href="https://www.liveaquaria.com/article/89/?aid=89" 
+                        className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'
+                    >
+                        &nbsp;LiveAquaria
+                    </Link>
+                    , so feel free to check them out if you have any questions on parameter ranges.
                 </Typography>
                 <Typography className='mt-2 font-bold'>Support</Typography>
                 <Typography gutterBottom>
@@ -51,15 +60,30 @@ export default function Welcome() {
                     <div className='flex flex-row gap-4'>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src='/github.png'/>
-                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://github.com/jesseilc123/aquarium_parameters_tester"}>GitHub</Link>
+                            <Link 
+                                className="hover:text-blue-400 dark:hover:text-gray-500" 
+                                href={"https://github.com/jesseilc123/aquarium_parameters_tester"}
+                            >
+                                GitHub
+                            </Link>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src='/devto.png'/>
-                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://dev.to/jesseilc123"}>Dev.to</Link>
+                            <Link 
+                                className="hover:text-blue-400 dark:hover:text-gray-500" 
+                                href={"https://dev.to/jesseilc123"}
+                            >
+                                Dev.to
+                            </Link>
                         </div>
                         <div className='flex flex-col items-center justify-center'>
                             <Avatar src="/linkedin.png"/>
-                            <Link className="hover:text-blue-400 dark:hover:text-gray-500" href={"https://www.linkedin.com/in/jesse-ilc-se2023/"}>LinkedIn</Link>
+                            <Link 
+                                className="hover:text-blue-400 dark:hover:text-gray-500" 
+                                href={"https://www.linkedin.com/in/jesse-ilc-se2023/"}
+                            >
+                                LinkedIn
+                            </Link>
                         </div>
                     </div>
                 </div>
