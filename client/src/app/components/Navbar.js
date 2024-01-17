@@ -50,7 +50,7 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                                 variant="h6"
                                 component="div"
                                 sx={{ fontWeight: 550 }}
-                                className='hidden md:flex w-full'
+                                className='hidden md:flex  md:w-[440px]'
                             >
                                 Aquarium Parameter Checker
                             </Typography>

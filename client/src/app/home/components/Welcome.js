@@ -14,8 +14,11 @@ export default function Welcome() {
                     Welcome to the Aquarium Parameter Checker!
                 </Typography>
                 <Divider />
-                <Typography className='mt-2' gutterBottom>
-                    The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks. The 
+                <Typography className='mt-2 font-bold'>Introduction</Typography>
+                <Typography >The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks.</Typography> 
+                <Typography className='mt-2 font-bold'>Site Features</Typography>
+                <Typography>
+                    The 
                     <Link 
                         href={"/tests"}
                         className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'
@@ -29,7 +32,11 @@ export default function Welcome() {
                     >
                         &nbsp;Ranges&nbsp;
                     </Link>
-                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from <Link href="https://www.liveaquaria.com/article/89/?aid=89" className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'>LiveAquaria</Link>, so feel free to check them out if you have any questions on parameter ranges. You can also contact me directly if you have any questions or suggestions to make this website better. I want to create a website to not only help myself, but other alike!  
+                    tab allows you to see good water parameters ranges for your tank type. The data used in this website is from <Link href="https://www.liveaquaria.com/article/89/?aid=89" className='font-bold dark:text-blue-400 hover:text-blue-400 dark:hover:text-gray-500'>LiveAquaria</Link>, so feel free to check them out if you have any questions on parameter ranges.
+                </Typography>
+                <Typography className='mt-2 font-bold'>Support</Typography>
+                <Typography gutterBottom>
+                    You can also contact me directly if you have any questions or suggestions to make this website better. I want to create a website to not only help myself, but other alike!  
                 </Typography>
                 <Divider />
                 <div className='flex justify-center flex-wrap items-center gap-4 sm:gap-20 mt-4'>
