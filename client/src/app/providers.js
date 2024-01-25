@@ -10,7 +10,7 @@ export default function Providers( { children }){
     
     if (typeof localStorage !== "undefined") {
         mode = localStorage.getItem("theme")
-    }
+    };
 
     useEffect(() => {
         if (mode === "dark") {
@@ -36,5 +36,5 @@ export default function Providers( { children }){
                 {children}
             </div>
         </ThemeProvider>
-    )
-}
+    );
+};

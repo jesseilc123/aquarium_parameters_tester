@@ -1,6 +1,12 @@
 "use client";
 import React from 'react';
-import { CardActionArea, Typography, CardMedia, CardContent, Card } from '@mui/material';
+import { 
+    CardActionArea, 
+    Typography, 
+    CardMedia, 
+    CardContent, 
+    Card,
+} from '@mui/material';
 import Link from 'next/link';
 
 export default function Ranges() {
