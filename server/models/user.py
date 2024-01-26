@@ -1,18 +1,18 @@
 from config import db, bcrypt
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.hybrid import hybrid_property
-from sqlalchemy.orm import validates
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    # serialize_rules = ('-user.replies', 'replies', '-user.posts')
+    serialize_rules = ('-user.tanks',)
 
     id = db.Column(db.Integer, primary_key=True)
 
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     _password_hash = db.Column(db.String, nullable=False)
+
     tanks = db.relationship("Tank", backref="user")
 
     @hybrid_property
