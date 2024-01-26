@@ -13,6 +13,7 @@ class User(db.Model, SerializerMixin):
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     _password_hash = db.Column(db.String, nullable=False)
+    tanks = db.relationship("Tank", backref="user")
 
     @hybrid_property
     def password_hash(self):
@@ -27,20 +28,6 @@ class User(db.Model, SerializerMixin):
     def authenticate(self, password):
         return bcrypt.check_password_hash(
             self._password_hash, password.encode('utf-8'))
-    
-    # @validates("username")
-    # def check_username(self, key, username):
-    #     if (not username):
-    #         raise ValueError({"message": "Username must exist"})
-
-    #     return username
-    
-    # @validates("email")
-    # def check_username(self, key, email):
-    #     if (not email):
-    #         raise ValueError({"message": "Username must exist"})
-
-    #     return email
 
     def __repr__(self):
         return f"User(id={self.id}, " + \
