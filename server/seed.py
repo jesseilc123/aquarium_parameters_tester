@@ -59,21 +59,21 @@ if __name__ == '__main__':
         print("Seeding Parameters...")
         params = [
             {"name": "Temperature", "min": 70, "max": 90, "type": "all", "class": Temperature}, 
-            {"name": "PH", "min": 6.0, "max": 8.0, "type": "all", "class": Temperature}, 
-            {"name": "Nitrite", "min": 0.00, "max": 1.00, "type": "all", "class": Temperature},
-            {"name": "Nitrate", "min": 0.00, "max": 1.00, "type": "all", "class": Temperature},
-            {"name": "Ammonia", "min": 0.00, "max": 1.00, "type": "all", "class": Temperature},
-            {"name": "Alkalinity", "min": 1, "max": 14, "type": "all", "class": Temperature},
-            {"name": "GH", "min": 1, "max": 14, "type": "fresh", "class": Temperature},
-            {"name": "Calcium", "min": 300, "max": 500, "type": "salt", "class": Temperature},
-            {"name": "Magnesium", "min": 1100, "max": 1400, "type": "salt", "class": Temperature},
-            {"name": "Iodine", "min": 1100, "max": 1400, "type": "salt", "class": Temperature},
-            {"name": "Strontium", "min": 1, "max": 14, "type": "salt", "class": Temperature},
+            {"name": "PH", "min": 6.0, "max": 8.0, "type": "all", "class": PH}, 
+            {"name": "Nitrite", "min": 0.00, "max": 1.00, "type": "all", "class": Nitrite},
+            {"name": "Nitrate", "min": 0.00, "max": 1.00, "type": "all", "class": Nitrate},
+            {"name": "Ammonia", "min": 0.00, "max": 1.00, "type": "all", "class": Ammonia},
+            {"name": "Alkalinity", "min": 1, "max": 14, "type": "all", "class": Alkalinity},
+            {"name": "GH", "min": 1, "max": 14, "type": "fresh", "class": GH},
+            {"name": "Calcium", "min": 300, "max": 500, "type": "salt", "class": Calcium},
+            {"name": "Magnesium", "min": 1100, "max": 1400, "type": "salt", "class": Magnesium},
+            {"name": "Iodine", "min": 1100, "max": 1400, "type": "salt", "class": Iodine},
+            {"name": "Strontium", "min": 1, "max": 14, "type": "salt", "class": Strontium},
         ]
 
         for i in params: 
             print(f"    Seeding {i['name']}")
-            for day in range(1, 31):
+            for day in range(1, 32):
                 if i["type"] == "fresh":
                     obj = i["class"](
                         value = randrange(i["min"], i["max"]),

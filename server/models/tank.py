@@ -17,6 +17,8 @@ class Tank(db.Model, SerializerMixin):
         '-magnesiums.tank',
         '-iodines.tank',
         '-strontiums.tank',
+        '-user',
+        '-tanks.calciums.tank',
     )
 
     id = db.Column(db.Integer, primary_key=True)

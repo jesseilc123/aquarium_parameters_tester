@@ -5,7 +5,21 @@ from sqlalchemy.ext.hybrid import hybrid_property
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules = ('-user.tanks',)
+    serialize_rules = (
+        '-tanks.nitrites',
+        '-tanks.nitrates', 
+        '-tanks.ammonias',
+        '-tanks.alkalinities',
+        '-tanks.temperatures',
+        '-tanks.ghs',
+        '-tanks.phs',
+        '-tanks.calciums',
+        '-tanks.iodines',
+        '-tanks.phosphates',
+        '-tanks.strontiums',
+        '-tanks.magnesiums',
+        '-user.tank'
+    )
 
     id = db.Column(db.Integer, primary_key=True)
 
