@@ -10,7 +10,7 @@ export default function TheWhy() {
             <CardContent>
                 <Typography variant='h4' gutterBottom>Why should you test your water parameters?</Typography>
                 <Divider/>
-                <Typography className='mt-2 font-bold'>Explanation</Typography>
+                <Typography className='mt-2 font-bold' align="center">Explanation</Typography>
                 <Typography>
                     Most beginners or even experienced aquarium hobbyists tend to overlook or aren&apos;t even aware of the importance of tracking water parameters. Some fish can demand very specific water parameters to ensure healthy lives and good growth. By testing your water parameters you can help balance your water chemistry leading to cleaner aquariums, healthier fish, and longer fish lifespans. Make sure to do your own research on your aquarium to figure out what your aquarium needs are.
                 </Typography>

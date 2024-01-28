@@ -118,7 +118,7 @@ const reefs = [
     {route: "salt_reef", name: "Reef", image: "/reef.jpg", description: "", parameters: reefParameters}, 
 ];
 
-const navItems = [{name: 'Home', link: "/"}, {name: 'Tests', link: "/tests"}, {name: 'Ranges', link: "/ranges"}];
+const navItems = [{name: 'Home', link: "/"}, {name: 'Tests', link: "/tests"}, {name: 'Ranges', link: "/ranges"}, {name: 'Logs', link: "/logs"}];
 
 export { 
     fowlrParameters, 

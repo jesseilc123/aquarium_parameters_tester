@@ -15,7 +15,8 @@ import {
     IconButton, 
     List, 
     ListItem, 
-    ListItemButton, 
+    ListItemButton,
+    Button, 
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
@@ -91,6 +92,9 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                                         )}
                                     </Link>
                                 ))}
+                                <Button variant="outlined" className="text-black dark:text-blue-400 font-medium dark:bg-grey-800  hover:bg-grey-200 dark:hover:bg-blue-400 dark:hover:text-grey-900 border-2 hover:border-2 border-black" sx={{ border: 2 }}>
+                                    <Link href="/login">Login</Link>
+                                </Button>
                             </div>
                         </div>
                         <Box className="flex flex-row items-center ml-4">
@@ -131,6 +135,9 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                                     </ListItem>
                                 </Link>
                             ))}
+                            <Button variant="outlined" sx={{marginTop: 2}}>
+                                <Link href="/login">Login</Link>
+                            </Button>
                         </List>
                     </Box>
                 </Drawer>

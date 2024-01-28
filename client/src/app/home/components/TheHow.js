@@ -12,11 +12,11 @@ export default function TheHow() {
             <CardContent>
                 <Typography variant='h4' gutterBottom>How to test your water parameters</Typography>
                 <Divider />
-                <Typography className='mt-2 font-bold'>Basics</Typography>
+                <Typography className='mt-2 font-bold' align="center">Basics</Typography>
                 <Typography gutterBottom>
                     The idea of testing your water parameters can be daunting at first. Depending on the type of your aquarium, the list of parameters to test kit for seem endless. But in reality, it&apos;s much simpler than you would think. You can buy a test kit that has all the tests you need and also include instructions on how to use them or get your water tested at a local fishstore.  
                 </Typography>
-                <Typography className='mt-2 font-bold'>
+                <Typography className='mt-2 font-bold' align="center">
                     Nitrogen Cycle
                 </Typography>
                 <Typography gutterBottom>

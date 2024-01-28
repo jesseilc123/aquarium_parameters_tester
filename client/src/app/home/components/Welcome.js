@@ -14,11 +14,11 @@ export default function Welcome() {
                     Welcome to the Aquarium Parameter Checker!
                 </Typography>
                 <Divider />
-                <Typography className='mt-2 font-bold'>Introduction</Typography>
+                <Typography className='mt-2 font-bold' align="center">Introduction</Typography>
                 <Typography>
                     The purpose of this website is to help fellow aquarium hobbyist (like myself) better understand the water parameters in their tanks.
                 </Typography> 
-                <Typography className='mt-2 font-bold'>Site Features</Typography>
+                <Typography className='mt-2 font-bold' align="center">Site Features</Typography>
                 <Typography>
                     The 
                     <Link 
@@ -43,7 +43,7 @@ export default function Welcome() {
                     </Link>
                     , so feel free to check them out if you have any questions on parameter ranges.
                 </Typography>
-                <Typography className='mt-2 font-bold'>Support</Typography>
+                <Typography className='mt-2 font-bold' align="center">Support</Typography>
                 <Typography gutterBottom>
                     You can also contact me directly if you have any questions or suggestions to make this website better. I want to create a website to not only help myself, but other alike!  
                 </Typography>
