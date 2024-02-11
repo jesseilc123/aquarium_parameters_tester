@@ -24,7 +24,7 @@ export default function Ranges() {
                                 alt="freshwater aquariums"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                                <Typography gutterBottom variant="h5" component="div" align='center'>
                                     Freshwater Aquariums
                                 </Typography>
                             </CardContent>
@@ -41,7 +41,7 @@ export default function Ranges() {
                                 alt="saltwater aquariums"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
+                                <Typography gutterBottom variant="h5" component="div" align='center'>
                                     Saltwater Aquariums
                                 </Typography>
                             </CardContent>

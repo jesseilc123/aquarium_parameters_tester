@@ -1,5 +1,5 @@
 "use client"; // This is a client component
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import ThemeToggle from './ThemeToggle';
 import { 
     Avatar, 
@@ -16,14 +16,17 @@ import {
     List, 
     ListItem, 
     ListItemButton,
-    Button, 
+    Button,
+    Tooltip, 
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { navItems } from "../constants";
+import { UserContext } from "../providers";
 
 export default function Navbar( { darkMode, setDarkMode } ) {
+    const { user, setUser } = useContext(UserContext);
     const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
     
@@ -41,6 +44,17 @@ export default function Navbar( { darkMode, setDarkMode } ) {
         setMobileOpen((prevState) => !prevState);
     };
 
+    function handleLogout() {
+        fetch("http://localhost:5555/logout", { method: "DELETE" })
+            .then(r => {
+                if (r.ok) {
+                    setUser(null)
+                } else {
+                    console.log(r)
+            }
+        })
+    }
+
     return (
         <Box> 
             <CssBaseline />
@@ -51,7 +65,7 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                     className={`dark:bg-grey sm:fixed`}
                 >
                     <Toolbar className='flex w-full justify-between'>
-                        <div className="flex flex-row gap-4 items-center md:justify-center mr-4 md:mr-0 sm:w-[700px]">
+                        <div className="flex flex-row gap-4 items-center lg:justify-start mr-4 md:mr-0 w-[200px] lg:w-[700px]">
                             <IconButton
                                 color="inherit"
                                 aria-label="open drawer"
@@ -66,7 +80,7 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                                 variant="h6"
                                 component="div"
                                 sx={{ fontWeight: 550 }}
-                                className='hidden md:flex  md:w-[440px]'
+                                className='hidden lg:flex  w-[300px]'
                             >
                                 Aquarium Parameter Checker
                             </Typography>
@@ -74,26 +88,41 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                         <div className='flex flex-row items-center gap-3 justify-between sm:justify-end w-full'>
                             <div className='md:flex flex-row items-center gap-2 hidden'>
                                 {navItems.map((item) => (
-                                    <Link key={item.link} href={item.link}>
+                                    <div key={item.link}>
                                         {item.link === "/" ? (
-                                            <button
-                                                value={item.name}
-                                                className={`dark:text-blue-400 hover:text-grey-300 ${pathname === "/" ? "text-grey-300 font-bold" : "" }`}
+                                            <Button 
+                                                variant="contained"
+                                                className={`dark:hover:bg-blue-400 hover:bg-white hover:text-black text-white dark:text-blue-400 dark:hover:text-black ${pathname === "/" ? "dark:bg-blue-400 bg-white" : null }`}
                                             >
-                                                {item.name}
-                                            </button>
+                                                <Link
+                                                    href={item.link}
+                                                    className={`dark:hover:text-black hover:text-black ${pathname === "/" ? "font-bold dark:text-black text-black" : null}`}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            </Button>
                                         ) : (
-                                            <button
-                                                value={item.name}
-                                                className={`dark:text-blue-400 hover:text-grey-300 ${pathname.includes(item.link) ? "text-grey-300 font-bold" : "" }`}
-                                            >
-                                                {item.name}
-                                            </button>
+                                            <Tooltip title={item.name === 'Dashboard' && !user ? "Login to view" : null} followCursor>
+                                                <span>
+                                                    <Button 
+                                                        variant="contained" 
+                                                        disabled={item.name === 'Dashboard' && !user ? true : false}
+                                                        className={`dark:hover:bg-blue-400 hover:bg-white hover:text-black text-white dark:text-blue-400 dark:hover:text-black ${pathname.includes(item.link) ? "dark:bg-blue-400 bg-white" : null }`}
+                                                    >
+                                                        <Link
+                                                            href={item.link}
+                                                            className={` dark:hover:text-black hover:text-black ${pathname.includes(item.link) ? "font-bold dark:text-black text-black" : null } ${item.name === 'Dashboard' && !user ? "text-grey-500": null}`}
+                                                        >
+                                                            {item.name}
+                                                        </Link>
+                                                    </Button>
+                                                </span>
+                                            </Tooltip>
                                         )}
-                                    </Link>
+                                    </div>
                                 ))}
-                                <Button variant="outlined" className="text-black dark:text-blue-400 font-medium dark:bg-grey-800  hover:bg-grey-200 dark:hover:bg-blue-400 dark:hover:text-grey-900 border-2 hover:border-2 border-black" sx={{ border: 2 }}>
-                                    <Link href="/login">Login</Link>
+                                <Button variant="outlined" className={`font-semibold border-2  ${!user ? `dark:border-blue-400  dark:hover:bg-blue-400  dark:hover:text-grey-900 border-white  hover:text-black hover:bg-white ${pathname === "/login" ? "dark:bg-blue-400 bg-white text-black dark:text-black" : "text-white dark:text-blue-400"}` : "hover:border-red-500 hover:text-red-500 bg-[#1976D2] border-white text-white dark:bg-[#3F4345] dark:border-blue-400 dark:text-blue-400 dark:hover:text-red-500 dark:hover:border-red-500" }`} sx={{ border: 2 }}>
+                                    {!user ? (<Link href="/login">Login</Link>) : (<Typography onClick={handleLogout}>Sign out</Typography>)}
                                 </Button>
                             </div>
                         </div>
@@ -123,20 +152,34 @@ export default function Navbar( { darkMode, setDarkMode } ) {
                         <Divider />
                         <List>
                             {navItems.map((item) => (
-                                <Link key={item.name} href={item.link}>
-                                    <ListItem  disablePadding>
-                                        <ListItemButton sx={{ textAlign: 'left' }}>
+                                <Tooltip 
+                                    key={item.name}  
+                                    title={item.name === 'Dashboard' && !user ? "Login to view" : null}
+                                    followCursor
+                                >
+                                    <ListItem>
+                                        <ListItemButton disabled={item.name === 'Dashboard' && !user ? true : false}>
                                             {item.link === "/" ? (
-                                                <Typography className={`${pathname === "/" ? "text-blue-400 font-bold" : "" }`}>{item.name}</Typography>
+                                                <Link 
+                                                    href={item.link} 
+                                                    className={`${pathname === "/" ? "text-[#1976D2] dark:text-blue-400 font-bold" : null }`}
+                                                >
+                                                    {item.name}
+                                                </Link>
                                             ) : (
-                                                <Typography className={`${pathname.includes(item.link) ? "text-blue-400 font-bold" : "" }`}>{item.name}</Typography>
+                                                <Link 
+                                                    href={item.link} 
+                                                    className={`${pathname.includes(item.link) ? "text-[#1976D2] dark:text-blue-400 font-bold" : null } ${item.name === 'Dashboard' && !user ? "text-grey-500" : null }`}
+                                                >
+                                                    {item.name}
+                                                </Link>
                                             )}
                                         </ListItemButton>
                                     </ListItem>
-                                </Link>
+                                </Tooltip>
                             ))}
-                            <Button variant="outlined" sx={{marginTop: 2}}>
-                                <Link href="/login">Login</Link>
+                            <Button variant="outlined" className={`font-semibold border-2  ${!user ? "dark:text-blue-400 dark:border-blue-400  dark:hover:bg-blue-400  dark:hover:text-grey-900 hover:bg-[#1976D2] hover:border-[#1976D2] hover:text-white" : "hover:border-red-500 hover:text-red-500 bg-[#1976D2] border-white text-white dark:bg-[#3F4345] dark:border-blue-400 dark:text-blue-400 dark:hover:text-red-500 dark:hover:border-red-500" }`} sx={{ border: 2 }}>
+                                {!user ? (<Link href="/login">Login</Link>) : (<Typography onClick={handleLogout}>Sign out</Typography>)}
                             </Button>
                         </List>
                     </Box>

@@ -17,8 +17,8 @@ class Tank(db.Model, SerializerMixin):
         '-magnesiums.tank',
         '-iodines.tank',
         '-strontiums.tank',
+        '-salinities.tank',
         '-user',
-        '-tanks.calciums.tank',
     )
 
     id = db.Column(db.Integer, primary_key=True)
@@ -27,18 +27,19 @@ class Tank(db.Model, SerializerMixin):
     type = db.Column(db.String, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    temperatures = db.relationship("Temperature", backref="tank")
-    ammonias = db.relationship("Ammonia", backref="tank")
-    nitrites = db.relationship("Nitrite", backref="tank")
-    nitrates = db.relationship("Nitrate", backref="tank")
-    phs = db.relationship("PH", backref="tank")
-    alkalinities = db.relationship("Alkalinity", backref="tank")
-    ghs = db.relationship("GH", backref="tank")
-    phosphates = db.relationship("Phosphate", backref="tank")
-    calciums = db.relationship("Calcium", backref="tank")
-    magnesiums = db.relationship("Magnesium", backref="tank")
-    iodines = db.relationship("Iodine", backref="tank")
-    strontiums = db.relationship("Strontium", backref="tank")
+    temperatures = db.relationship("Temperature", backref="tank", cascade="all, delete-orphan")
+    ammonias = db.relationship("Ammonia", backref="tank", cascade="all, delete-orphan")
+    nitrites = db.relationship("Nitrite", backref="tank", cascade="all, delete-orphan")
+    nitrates = db.relationship("Nitrate", backref="tank", cascade="all, delete-orphan")
+    phs = db.relationship("PH", backref="tank", cascade="all, delete-orphan")
+    alkalinities = db.relationship("Alkalinity", backref="tank", cascade="all, delete-orphan")
+    ghs = db.relationship("GH", backref="tank", cascade="all, delete-orphan")
+    phosphates = db.relationship("Phosphate", backref="tank", cascade="all, delete-orphan")
+    calciums = db.relationship("Calcium", backref="tank", cascade="all, delete-orphan")
+    magnesiums = db.relationship("Magnesium", backref="tank", cascade="all, delete-orphan")
+    iodines = db.relationship("Iodine", backref="tank", cascade="all, delete-orphan")
+    strontiums = db.relationship("Strontium", backref="tank", cascade="all, delete-orphan")
+    salinities = db.relationship("Salinity", backref="tank", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"Tank(id={self.id}, " + \
